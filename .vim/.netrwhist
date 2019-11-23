@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/gino/Developer/pluralsight/MobSquad'
+let g:netrw_dirhist_2='/Users/gino/Developer/pluralsight/MobSquad/MobSquad'
+let g:netrw_dirhist_3='/Users/gino/.vim'
+let g:netrw_dirhist_4='/Users/gino'
+let g:netrw_dirhist_5='/Users/gino/.vim'

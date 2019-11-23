@@ -1,0 +1,21 @@
+{
+  "suggest.noselect": false,
+  "python.pythonPath": "/Library/Frameworks/Python.framework/Versions/3.6/bin/python3",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "graphql",
+    "python3"
+  ],
+  "prettier.singleQuote": true,
+  "prettier.arrowParens": "always",
+  "prettier.trailingComma": "all",
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 80,
+  "python.jediEnabled": false
+}
