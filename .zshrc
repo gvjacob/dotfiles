@@ -17,13 +17,11 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 autoload -U promptinit; promptinit
 prompt pure
 
-git -C ~/ pull
-
 if [[ "$PWD" = /Users/gino ]]; then
   cd Developer
 fi
 
 # Initialize tmux session
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-      tmux attach -t default || tmux new -s default
-fi
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+      #tmux attach -t default || tmux new -s default
+#fi
