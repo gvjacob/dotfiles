@@ -4,7 +4,7 @@ import pathlib
 current_file = os.path.basename(__file__)
 
 # Exclude these files for symlinks
-EXLUDE = [current_file, 'README.md', '.git', '.DS_Store']
+EXLUDE = [current_file, 'README.md', '.git', '.DS_Store', '.gitignore']
 
 # Remove exclude files from files
 # to symlink
