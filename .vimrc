@@ -1,12 +1,13 @@
+" --------------------------------------------------------------
 " Plugins
+" --------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
-  " NTH plugins
+  " Editor
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-fugitive'
   Plug 'scrooloose/nerdtree'
+  Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-abolish'
-  Plug 'mhartington/oceanic-next'
   Plug 'w0rp/ale'
   Plug 'scrooloose/nerdcommenter'
   Plug 'ntpeters/vim-better-whitespace'
@@ -16,24 +17,39 @@ call plug#begin('~/.vim/plugged')
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-easymotion.vim'
   Plug 'christoomey/vim-system-copy'
-  Plug 'shougo/unite.vim'
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
+  Plug 'junegunn/fzf.vim'
+  Plug 'JamshedVesuna/vim-markdown-preview'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'jxnblk/vim-mdx-js'
 
+
+  " Theme
+  Plug 'mhartington/oceanic-next'
 
   " Language plugins
   Plug 'scrooloose/syntastic'
   Plug 'prettier/vim-prettier'
+  Plug 'derekwyatt/vim-scala'
   Plug 'pangloss/vim-javascript'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'quramy/tsuquyomi'
+  Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Requirement for tsuquyomi
   Plug 'mxw/vim-jsx'
+  Plug 'nelsyeung/twig.vim'
+  Plug 'lepture/vim-jinja'
+  Plug 'stanangeloff/php.vim'
 call plug#end()
 
-if (has("termguicolors"))
-  set termguicolors
-endif
 
-highlight LineNr ctermfg=grey
-
+" --------------------------------------------------------------
+" Vim Configuration
+" --------------------------------------------------------------
 syntax enable
 set updatetime=1000
+set relativenumber
 set number
 set nocompatible
 set hlsearch
@@ -53,36 +69,78 @@ set backspace=2
 set autoread
 set clipboard=unnamed
 set noshowmode
+set showtabline=2  " Show tabline
+set guioptions-=e  " Don't use GUI tabline
+set timeoutlen=1000 ttimeoutlen=0
+highlight LineNr ctermfg=grey
 autocmd filetype crontab setlocal nobackup nowritebackup
 filetype plugin indent on
 
-" other plugin settings
-let g:netrw_liststyle=3
+" Search selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
+" Change cursors
+let &t_SI = "\033[5 q" " INSERT
+let &t_EI = "\033[1 q" " NORMAL
+
+
+
+" --------------------------------------------------------------
+" Language
+" --------------------------------------------------------------
+"  Scala
+au BufRead,BufNewFile *.sbt set filetype=scala
+let g:syntastic_scala_checkers = []
+let g:syntastic_ignore_files = ['\m\.sbt$','\m\.scala$']
+
+" JSON
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" JS
 let g:jsx_ext_require=0
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-let g:airline_theme='oceanicnext'
-let NERDTreeIgnore = ['\.pyc$', '.DS_Store', 'node_modules', '.git']
-let NERDTreeShowHidden = 1
+let g:netrw_liststyle=3
+
+" Jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.njk set ft=jinja
+
+" --------------------------------------------------------------
+" Plugin Settings
+" --------------------------------------------------------------
+
+" fzf
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
+
+"  NERDTree
+let NERDTreeIgnore=['\.pyc$', '.DS_Store', '.git$']
+let NERDTreeShowHidden=1
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDCustomDelimiters={
-	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+  \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
+
+" Ctrlp
+let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|github|svn|cache))$'
+let g:ctrlp_show_hidden = 1
+
+" Airline
+let g:airline_theme='oceanicnext'
 
 " Conquer of Completion (coc)
 let g:coc_global_extensions = [
   \ 'coc-snippets',
-  \ 'coc-pairs',
   \ 'coc-tsserver',
   \ 'coc-eslint',
   \ 'coc-prettier',
   \ 'coc-json',
   \ 'coc-python',
+  \ 'coc-metals',
   \ 'coc-css',
   \ 'coc-html',
   \ 'coc-yaml',
   \ 'coc-highlight',
+  \ 'coc-pairs',
   \ ]
-
 
 " Lightline
 let g:lightline = {
@@ -100,6 +158,7 @@ let g:lightline = {
   \     'gitbranch': 'fugitive#head',
   \   }
   \ }
+
 let g:lightline.tabline = {
   \   'left': [ ['tabs'] ],
   \   'right': [ ['close'] ]
@@ -114,37 +173,32 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
-set showtabline=2  " Show tabline
-set guioptions-=e  " Don't use GUI tabline
+" Limelight
+let g:limelight_conceal_ctermfg = 'gray'
+"autocmd! User GoyoEnter Limelight
+"autocmd! User GoyoLeave Limelight!
 
+" Goyo
+autocmd! User GoyoLeave :source $MYVIMRC
+let g:goyo_height = '100%'
+let g:goyo_width = '50%'
+
+" vim-markdown-preview
+let vim_markdown_preview_github=1 " use grip
+let vim_markdown_preview_browser='Brave'
 
 " Prettier
 let g:prettier#autoformat = 0
-let g:prettier#config#semi = 'false'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'true'
+let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#arrow_parens = 'always'
 let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#print_width = 100
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+let g:prettier#config#print_width = 80
+let g:prettier#config#tab_width = 2
 
-" Leaders
-let mapleader=","
-nmap <Leader>n :NERDTreeToggle<CR>
-nmap <Leader>N :NERDTreeFind<CR>
-nmap <Leader>p :CtrlP<CR>
-nmap <Leader>l :ALELint<CR>
-nmap <Leader>lf :ALEFix<CR>
-nmap <Leader>f :Prettier<CR>
-nmap <Leader>s :so $MYVIMRC<CR>
-nmap <Leader>r :edit<CR>
-nmap <Leader>s <c-w>r<c-w>w<CR>
-nmap / <Plug>(incsearch-easymotion-/)
-" Search selected text
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
-
-let &t_SI = "\033[5 q"
-let &t_EI = "\033[1 q"
-set timeoutlen=1000 ttimeoutlen=0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.mdx,*.vue,*.yaml,*.html PrettierAsync
 
 " Asynchronous Linter Engine (ALE)
 let g:ale_lint_on_save = 0
@@ -157,10 +211,61 @@ let g:ale_sign_warning = '??'
 let g:ale_linters = {
   \ 'javascript': ['eslint', 'flow']
   \ }
+" --------------------------------------------------------------
+" Commands
+" --------------------------------------------------------------
+" https://vimrcfu.com/snippet/223
+cnoreabbrev hs split
 
-" Mappings, Commands
+" --------------------------------------------------------------
+" Mappings
+" --------------------------------------------------------------
+
+" Terminal
+"tnoremap <Esc> <C-\><C-n>
+"tnoremap <Esc><Esc> <C-\><C-n>:q!<CR>
+
+" Leader
+let mapleader=","
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>N :NERDTreeFind<CR>
+nmap <Leader>p :GFiles --cached --others --exclude-standard<CR>
+nmap <Leader>s :Ag<CR>
+nmap <Leader>t :vert terminal<CR>
+nmap <Leader>/ :BLines<CR>
+nmap <Leader>gd <Plug>(coc-definition)
+nmap <Leader>gr <Plug>(coc-references)
+nmap <Leader>F :Prettier<CR>
+nmap <Leader>S <C-w>r<C-w>w<CR>
+nmap <Leader>R :edit!<CR>
+
+" Shift + F
+nmap Fs :source $MYVIMRC<CR>| " Resource .vimrc file
+nmap Fl :Limelight!!<CR>| " Toggle Limelight
+nmap Fg :Goyo<CR>Fs<CR>| " Toggle Goyo
+nmap Fr :noh<CR>| " Clear search results
+
+" Misc
 nmap <Tab> :b#<CR>
+nmap / <Plug>(incsearch-easymotion-/)
 
-" Additional sourcing
-"source ~/.vim/coc.vim
+" --------------------------------------------------------------
+" Abbreviations
+" --------------------------------------------------------------
 
+" Javascript
+"autocmd FileType javascript :iabbrev <buffer> -if- if ()<left>
+"autocmd FileType javascript :iabbrev <buffer> -log- console.log()<left>
+"autocmd FileType javascript :iabbrev <buffer> -import- import  from ''<left>
+
+" Python
+"autocmd FileType python :iabbrev <buffer> -if- if :<left>
+"autocmd FileType python :iabbrev <buffer> -log- print()<left>
+"autocmd FileType python :iabbrev <buffer> -import- from import
+
+
+" --------------------------------------------------------------
+" Resources
+" --------------------------------------------------------------
+" https://vim-adventures.com/
+" https://learnvimscriptthehardway.stevelosh.com/
