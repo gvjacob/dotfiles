@@ -1,0 +1,7 @@
+[user]
+	email = \ngvjacob@outlook.com
+	name = gvjacob
+[push]
+	default = current
+[pull]
+	rebase = true
