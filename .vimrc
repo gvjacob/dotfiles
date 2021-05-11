@@ -31,13 +31,14 @@ call plug#begin('~/.vim/plugged')
 
   " Language plugins
   Plug 'scrooloose/syntastic'
-  Plug 'prettier/vim-prettier'
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'derekwyatt/vim-scala'
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'quramy/tsuquyomi'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Requirement for tsuquyomi
   Plug 'mxw/vim-jsx'
+  Plug 'posva/vim-vue'
   Plug 'nelsyeung/twig.vim'
   Plug 'lepture/vim-jinja'
   Plug 'stanangeloff/php.vim'
@@ -197,6 +198,7 @@ let g:prettier#config#arrow_parens = 'always'
 let g:prettier#config#jsx_bracket_same_line = 'false'
 let g:prettier#config#print_width = 80
 let g:prettier#config#tab_width = 2
+let g:prettier#config#config_precedence = 'prefer-file'
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.mdx,*.vue,*.yaml,*.html PrettierAsync
 
