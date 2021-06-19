@@ -24,6 +24,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'JamshedVesuna/vim-markdown-preview'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'jxnblk/vim-mdx-js'
+  Plug 'mattn/emmet-vim'
 
 
   " Theme
@@ -56,13 +57,16 @@ set nocompatible
 set hlsearch
 set expandtab
 set tabstop=2
+set hidden
 set shiftwidth=2
 set wrap
+set ignorecase
+set smartcase
 set linebreak
 set softtabstop=2
+set scrolloff=8
 set smarttab
 set noswapfile
-set ignorecase
 set laststatus=2
 set background=dark
 set lazyredraw
@@ -210,9 +214,12 @@ let g:ale_set_highlights = 0
 let g:ale_linters_ignore = ['tsserver']
 let g:ale_sign_error = '!!'
 let g:ale_sign_warning = '??'
-let g:ale_linters = {
-  \ 'javascript': ['eslint', 'flow']
+let g:ale_fix_on_save = 0
+let g:ale_fixers = {
+  \   'javascript': ['prettier', 'eslint'],
+  \   'vue': ['prettier', 'eslint']
   \ }
+
 " --------------------------------------------------------------
 " Commands
 " --------------------------------------------------------------
