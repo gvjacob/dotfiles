@@ -1,6 +1,8 @@
-{
+
   "suggest.noselect": true,
   "python.pythonPath": "/usr/bin/python3",
+  "prettier.disableLanguages": [],
+  "prettier.eslintIntegration": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",

@@ -147,6 +147,10 @@ let g:coc_global_extensions = [
 " Use Coc's formatter for :Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
+" Run Prettier pre-write for Vue files
+" coc fails to recognize vue files
+autocmd BufWritePre *.vue Prettier
+
 " Lightline
 let g:lightline = {
   \   'colorscheme': 'wombat',
