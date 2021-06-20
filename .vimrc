@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/goyo.vim'
-  Plug 'junegunn/limelight.vim'
 
   Plug 'scrooloose/nerdtree'
   Plug 'PhilRunninger/nerdtree-visual-selection'
@@ -183,11 +182,6 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
-" Limelight
-let g:limelight_conceal_ctermfg = 'gray'
-"autocmd! User GoyoEnter Limelight
-"autocmd! User GoyoLeave Limelight!
-
 " Goyo
 autocmd! User GoyoLeave :source $MYVIMRC
 let g:goyo_height = '100%'
@@ -206,51 +200,31 @@ cnoreabbrev hs split
 " Mappings
 " --------------------------------------------------------------
 
-" Terminal
-" tnoremap <Esc> <C-\><C-n>
-" tnoremap <Esc><Esc> <C-\><C-n>:q!<CR>
-
 " Leader
 let mapleader=","
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>N :NERDTreeFind<CR>
 nmap <Leader>p :GFiles --cached --others --exclude-standard<CR>
 nmap <Leader>s :Ag<CR>
-nmap <Leader>t :vert terminal<CR>
 nmap <Leader>/ :BLines<CR>
 nmap <Leader>gd <Plug>(coc-definition)
 nmap <Leader>gr <Plug>(coc-references)
 nmap <Leader>S <C-w>r<C-w>w<CR>
-nmap <Leader>R :edit!<CR>
-nnoremap <Leader>m :MaximizerToggle<CR>
+nmap <Leader>r :edit!<CR>
+nmap <Leader>m :MaximizerToggle<CR>
 
-" Use C-j and C-k to navigate pop up window
-inoremap <expr> <C-j> pumvisible() ? "<Down>" : ""
-inoremap <expr> <C-k> pumvisible() ? "<Up>" : ""
-
-" Shift + F
-nmap Fs :source $MYVIMRC<CR>| " Resource .vimrc file
-nmap Fl :Limelight!!<CR>| " Toggle Limelight
-nmap Fg :Goyo<CR>Fs<CR>| " Toggle Goyo
-nmap Fr :noh<CR>| " Clear search results
+" f leader
+nmap fs :source $MYVIMRC<CR>| " Resource .vimrc file
+nmap fg :Goyo<CR>Fs<CR>| " Toggle Goyo
+nmap fr :noh<CR>| " Clear search results
 
 " Misc
 nmap <Tab> :b#<CR>
 nmap / <Plug>(incsearch-easymotion-/)
 
-" --------------------------------------------------------------
-" Abbreviations
-" --------------------------------------------------------------
-
-" Javascript
-"autocmd FileType javascript :iabbrev <buffer> -if- if ()<left>
-"autocmd FileType javascript :iabbrev <buffer> -log- console.log()<left>
-"autocmd FileType javascript :iabbrev <buffer> -import- import  from ''<left>
-
-" Python
-"autocmd FileType python :iabbrev <buffer> -if- if :<left>
-"autocmd FileType python :iabbrev <buffer> -log- print()<left>
-"autocmd FileType python :iabbrev <buffer> -import- from import
+" Use C-j and C-k to navigate pop up window
+inoremap <expr> <C-j> pumvisible() ? "<Down>" : ""
+inoremap <expr> <C-k> pumvisible() ? "<Up>" : ""
 
 
 " --------------------------------------------------------------
