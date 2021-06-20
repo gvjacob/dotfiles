@@ -226,6 +226,10 @@ nmap / <Plug>(incsearch-easymotion-/)
 inoremap <expr> <C-j> pumvisible() ? "<Down>" : ""
 inoremap <expr> <C-k> pumvisible() ? "<Up>" : ""
 
+" Use C-j and C-k to navigate page up and down
+nnoremap <C-j> <C-d>
+nnoremap <C-k> <C-u>
+
 
 " --------------------------------------------------------------
 " Resources
