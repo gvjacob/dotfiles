@@ -4,45 +4,53 @@
 call plug#begin('~/.vim/plugged')
   " Editor
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'tpope/vim-fugitive'
-  Plug 'tpope/vim-abolish'
   Plug 'w0rp/ale'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'ntpeters/vim-better-whitespace'
   Plug 'itchyny/lightline.vim'
-  Plug 'airblade/vim-gitgutter'
-  Plug 'easymotion/vim-easymotion'
-  Plug 'haya14busa/incsearch.vim'
-  Plug 'haya14busa/incsearch-easymotion.vim'
-  Plug 'christoomey/vim-system-copy'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
+
+  Plug 'scrooloose/nerdtree'
+  Plug 'PhilRunninger/nerdtree-visual-selection'
+  Plug 'scrooloose/nerdcommenter'
+
+  Plug 'tpope/vim-abolish'
+  Plug 'ntpeters/vim-better-whitespace'
+
+  " Git
+  Plug 'tpope/vim-fugitive'
+  Plug 'airblade/vim-gitgutter'
+
+  " Search
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
-  Plug 'JamshedVesuna/vim-markdown-preview'
-  Plug 'mustache/vim-mustache-handlebars'
-  Plug 'jxnblk/vim-mdx-js'
-  Plug 'mattn/emmet-vim'
 
+  " In-file search (dependencies)
+  Plug 'easymotion/vim-easymotion'
+  Plug 'haya14busa/incsearch.vim'
+  Plug 'haya14busa/incsearch-easymotion.vim' " incsearch + easymotion
 
   " Theme
   Plug 'mhartington/oceanic-next'
 
   " Language plugins
   Plug 'scrooloose/syntastic'
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
-  Plug 'derekwyatt/vim-scala'
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'quramy/tsuquyomi'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Requirement for tsuquyomi
-  Plug 'mxw/vim-jsx'
+  Plug 'derekwyatt/vim-scala'
+  Plug 'mustache/vim-mustache-handlebars'
+  Plug 'maxmellon/vim-jsx-pretty'
   Plug 'posva/vim-vue'
   Plug 'nelsyeung/twig.vim'
   Plug 'lepture/vim-jinja'
   Plug 'stanangeloff/php.vim'
+
+  " Misc
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+  Plug 'JamshedVesuna/vim-markdown-preview'
+  Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 
@@ -77,6 +85,8 @@ set noshowmode
 set showtabline=2  " Show tabline
 set guioptions-=e  " Don't use GUI tabline
 set timeoutlen=1000 ttimeoutlen=0
+
+" Grey line numbers
 highlight LineNr ctermfg=grey
 autocmd filetype crontab setlocal nobackup nowritebackup
 filetype plugin indent on
@@ -87,7 +97,6 @@ vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 " Change cursors
 let &t_SI = "\033[5 q" " INSERT
 let &t_EI = "\033[1 q" " NORMAL
-
 
 
 " --------------------------------------------------------------
@@ -123,10 +132,6 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDCustomDelimiters={
   \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
-
-" Ctrlp
-let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|github|svn|cache))$'
-let g:ctrlp_show_hidden = 1
 
 " Airline
 let g:airline_theme='oceanicnext'
@@ -204,7 +209,7 @@ let g:prettier#config#print_width = 80
 let g:prettier#config#tab_width = 2
 let g:prettier#config#config_precedence = 'prefer-file'
 
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.mdx,*.vue,*.yaml,*.html PrettierAsync
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.mdx,*.vue,*.yaml,*.html PrettierAsync
 
 " Asynchronous Linter Engine (ALE)
 let g:ale_lint_on_save = 0
