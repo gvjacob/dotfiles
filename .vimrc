@@ -201,7 +201,7 @@ cnoreabbrev hs split
 " --------------------------------------------------------------
 
 " Leader
-let mapleader=","
+let mapleader="f"
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>N :NERDTreeFind<CR>
 nmap <Leader>p :GFiles --cached --others --exclude-standard<CR>
@@ -209,14 +209,14 @@ nmap <Leader>s :Ag<CR>
 nmap <Leader>/ :BLines<CR>
 nmap <Leader>gd <Plug>(coc-definition)
 nmap <Leader>gr <Plug>(coc-references)
-nmap <Leader>S <C-w>r<C-w>w<CR>
-nmap <Leader>r :edit!<CR>
+nmap <Leader>r :noh<CR>| " Clear search results
 nmap <Leader>m :MaximizerToggle<CR>
 
-" f leader
-nmap fs :source $MYVIMRC<CR>| " Resource .vimrc file
-nmap fg :Goyo<CR>Fs<CR>| " Toggle Goyo
-nmap fr :noh<CR>| " Clear search results
+" , leader
+nmap ,S <C-w>r<C-w>w<CR>
+nmap ,s :source $MYVIMRC<CR>| " Resource .vimrc file
+nmap ,g :Goyo<CR>Fs<CR>| " Toggle Goyo
+nmap ,r :edit!<CR>
 
 " Misc
 nmap <Tab> :b#<CR>
