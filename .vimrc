@@ -197,7 +197,6 @@ let vim_markdown_preview_browser='Brave'
 " --------------------------------------------------------------
 " Commands
 " --------------------------------------------------------------
-" https://vimrcfu.com/snippet/223
 cnoreabbrev hs split
 
 " --------------------------------------------------------------
@@ -205,8 +204,8 @@ cnoreabbrev hs split
 " --------------------------------------------------------------
 
 " Terminal
-"tnoremap <Esc> <C-\><C-n>
-"tnoremap <Esc><Esc> <C-\><C-n>:q!<CR>
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap <Esc><Esc> <C-\><C-n>:q!<CR>
 
 " Leader
 let mapleader=","
