@@ -38,7 +38,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'leafgarland/typescript-vim'
   Plug 'quramy/tsuquyomi'
   Plug 'Shougo/vimproc.vim', {'do' : 'make'} " Requirement for tsuquyomi
-  Plug 'derekwyatt/vim-scala'
   Plug 'mustache/vim-mustache-handlebars'
   Plug 'maxmellon/vim-jsx-pretty'
   Plug 'posva/vim-vue'
@@ -82,45 +81,37 @@ set backspace=2
 set autoread
 set clipboard=unnamed
 set noshowmode
-set showtabline=2  " Show tabline
+set showtabline=1  " Show tabline when there are tabs
 set guioptions-=e  " Don't use GUI tabline
 set timeoutlen=1000 ttimeoutlen=0
 
-" Grey line numbers
+" Set linenumber color
 highlight LineNr ctermfg=grey
-autocmd filetype crontab setlocal nobackup nowritebackup
-filetype plugin indent on
 
-" Search selected text
+" Search selected text: //
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
-" Change cursors
-let &t_SI = "\033[5 q" " INSERT
+" Change cursor on INSERT
 let &t_EI = "\033[1 q" " NORMAL
+let &t_SI = "\033[5 q" " INSERT
+
+autocmd filetype crontab setlocal nobackup nowritebackup
+filetype plugin indent on
 
 
 " --------------------------------------------------------------
 " Language
 " --------------------------------------------------------------
-"  Scala
-au BufRead,BufNewFile *.sbt set filetype=scala
-let g:syntastic_scala_checkers = []
-let g:syntastic_ignore_files = ['\m\.sbt$','\m\.scala$']
-
 " JSON
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
-" JS
-let g:jsx_ext_require=0
-let g:netrw_liststyle=3
-
 " Jinja
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.njk set ft=jinja
+au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.njk set filetype=jinja
+
 
 " --------------------------------------------------------------
 " Plugin Settings
 " --------------------------------------------------------------
-
 " fzf
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
