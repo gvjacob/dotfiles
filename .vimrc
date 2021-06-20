@@ -85,6 +85,8 @@ set showtabline=1  " Show tabline when there are tabs
 set guioptions-=e  " Don't use GUI tabline
 set timeoutlen=1000 ttimeoutlen=0
 
+" Change pop up window colors
+hi Pmenu ctermbg=cyan ctermfg=white
 
 " Set linenumber color
 highlight LineNr ctermfg=grey
@@ -143,6 +145,7 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ ]
 
+" Use Coc's formatter for :Prettier command
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Lightline
@@ -220,6 +223,10 @@ nmap <Leader>gr <Plug>(coc-references)
 nmap <Leader>S <C-w>r<C-w>w<CR>
 nmap <Leader>R :edit!<CR>
 nnoremap <Leader>m :MaximizerToggle<CR>
+
+" Use C-j and C-k to navigate pop up window
+inoremap <expr> <C-j> pumvisible() ? "<Down>" : ""
+inoremap <expr> <C-k> pumvisible() ? "<Up>" : ""
 
 " Shift + F
 nmap Fs :source $MYVIMRC<CR>| " Resource .vimrc file
