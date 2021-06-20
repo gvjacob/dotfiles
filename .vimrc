@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-abolish'
   Plug 'ntpeters/vim-better-whitespace'
 
+  Plug 'szw/vim-maximizer'
+
   " Git
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
@@ -85,8 +87,12 @@ set showtabline=1  " Show tabline when there are tabs
 set guioptions-=e  " Don't use GUI tabline
 set timeoutlen=1000 ttimeoutlen=0
 
+
 " Set linenumber color
 highlight LineNr ctermfg=grey
+
+" Remove background color on SignColumn
+highlight clear SignColumn
 
 " Search selected text: //
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
@@ -115,7 +121,6 @@ au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.njk set filetype=jinja
 " fzf
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
-
 "  NERDTree
 let NERDTreeIgnore=['\.pyc$', '.DS_Store', '.git$']
 let NERDTreeShowHidden=1
@@ -123,9 +128,6 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDCustomDelimiters={
   \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
-
-" Airline
-let g:airline_theme='oceanicnext'
 
 " Conquer of Completion (coc)
 let g:coc_global_extensions = [
@@ -149,10 +151,14 @@ let g:lightline = {
   \   'active': {
   \     'left':[ [ 'mode', 'paste' ],
   \              [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+  \     ],
+  \     'right':[ ['filetype'],
+  \               ['lineinfo'],
+  \               ['percent'],
   \     ]
   \   },
   \   'component': {
-  \     'lineinfo': ' %3l:%-2v',
+  \     'lineinfo': '%3l:%-2v',
   \   },
   \   'component_function': {
   \     'filename': 'LightlineFilename',
@@ -160,17 +166,17 @@ let g:lightline = {
   \   }
   \ }
 
-let g:lightline.tabline = {
-  \   'left': [ ['tabs'] ],
-  \   'right': [ ['close'] ]
-  \ }
-
+"
+" Current filename for lightline
+"
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
   let path = expand('%:p')
+
   if path[:len(root)-1] ==# root
     return path[len(root)+1:]
   endif
+
   return expand('%')
 endfunction
 
@@ -243,6 +249,7 @@ nmap <Leader>gr <Plug>(coc-references)
 nmap <Leader>F :Prettier<CR>
 nmap <Leader>S <C-w>r<C-w>w<CR>
 nmap <Leader>R :edit!<CR>
+nnoremap <Leader>m :MaximizerToggle<CR>
 
 " Shift + F
 nmap Fs :source $MYVIMRC<CR>| " Resource .vimrc file
