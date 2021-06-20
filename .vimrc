@@ -48,7 +48,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'stanangeloff/php.vim'
 
   " Misc
-  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
   Plug 'JamshedVesuna/vim-markdown-preview'
   Plug 'mattn/emmet-vim'
 
@@ -145,6 +144,8 @@ let g:coc_global_extensions = [
   \ 'coc-pairs',
   \ ]
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 " Lightline
 let g:lightline = {
   \   'colorscheme': 'wombat',
@@ -194,20 +195,6 @@ let g:goyo_width = '50%'
 let vim_markdown_preview_github=1 " use grip
 let vim_markdown_preview_browser='Brave'
 
-" Prettier
-let g:prettier#autoformat = 0
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#semi = 'true'
-let g:prettier#config#trailing_comma = 'all'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#arrow_parens = 'always'
-let g:prettier#config#jsx_bracket_same_line = 'false'
-let g:prettier#config#print_width = 80
-let g:prettier#config#tab_width = 2
-let g:prettier#config#config_precedence = 'prefer-file'
-
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.mdx,*.vue,*.yaml,*.html PrettierAsync
-
 " Asynchronous Linter Engine (ALE)
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_text_change = 'never'
@@ -246,7 +233,6 @@ nmap <Leader>t :vert terminal<CR>
 nmap <Leader>/ :BLines<CR>
 nmap <Leader>gd <Plug>(coc-definition)
 nmap <Leader>gr <Plug>(coc-references)
-nmap <Leader>F :Prettier<CR>
 nmap <Leader>S <C-w>r<C-w>w<CR>
 nmap <Leader>R :edit!<CR>
 nnoremap <Leader>m :MaximizerToggle<CR>
