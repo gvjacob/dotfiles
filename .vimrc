@@ -4,7 +4,6 @@
 call plug#begin('~/.vim/plugged')
   " Editor
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'w0rp/ale'
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
@@ -194,20 +193,6 @@ let g:goyo_width = '50%'
 " vim-markdown-preview
 let vim_markdown_preview_github=1 " use grip
 let vim_markdown_preview_browser='Brave'
-
-" Asynchronous Linter Engine (ALE)
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_text_change = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_set_highlights = 0
-let g:ale_linters_ignore = ['tsserver']
-let g:ale_sign_error = '!!'
-let g:ale_sign_warning = '??'
-let g:ale_fix_on_save = 0
-let g:ale_fixers = {
-  \   'javascript': ['prettier', 'eslint'],
-  \   'vue': ['prettier', 'eslint']
-  \ }
 
 " --------------------------------------------------------------
 " Commands
