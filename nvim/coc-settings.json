@@ -1,5 +1,5 @@
-
-  "suggest.noselect": true,
+{
+  "suggest.noselect": false,
   "python.pythonPath": "/usr/bin/python3",
   "prettier.disableLanguages": [],
   "prettier.eslintIntegration": true,
