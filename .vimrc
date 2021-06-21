@@ -2,7 +2,9 @@
 " Plugins
 " --------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
+  "
   " Editor
+  "
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'itchyny/lightline.vim'
   Plug 'junegunn/goyo.vim'
@@ -15,24 +17,35 @@ call plug#begin('~/.vim/plugged')
   Plug 'ntpeters/vim-better-whitespace'
 
   Plug 'szw/vim-maximizer'
+  Plug 'mattn/emmet-vim'
 
+  "
   " Git
+  "
   Plug 'tpope/vim-fugitive'
   Plug 'airblade/vim-gitgutter'
 
+  "
   " Search
+  "
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
 
+  "
   " In-file search (dependencies)
+  "
   Plug 'easymotion/vim-easymotion'
   Plug 'haya14busa/incsearch.vim'
   Plug 'haya14busa/incsearch-easymotion.vim' " incsearch + easymotion
 
+  "
   " Theme
+  "
   Plug 'mhartington/oceanic-next'
 
-  " Language plugins
+  "
+  " Languages
+  "
   Plug 'scrooloose/syntastic'
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
@@ -45,9 +58,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'lepture/vim-jinja'
   Plug 'stanangeloff/php.vim'
 
+  "
   " Misc
+  "
   Plug 'JamshedVesuna/vim-markdown-preview'
-  Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -111,20 +125,28 @@ filetype plugin indent on
 " --------------------------------------------------------------
 " Language
 " --------------------------------------------------------------
+"
 " JSON
+"
 autocmd FileType json syntax match Comment +\/\/.\+$+
 
+"
 " Jinja
+"
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm,*.njk set filetype=jinja
 
 
 " --------------------------------------------------------------
 " Plugin Settings
 " --------------------------------------------------------------
+"
 " fzf
+"
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
-"  NERDTree
+"
+" NERDTree
+"
 let NERDTreeIgnore=['\.pyc$', '.DS_Store', '.git$']
 let NERDTreeShowHidden=1
 let g:NERDTreeNodeDelimiter = "\u00a0"
@@ -132,7 +154,17 @@ let g:NERDCustomDelimiters={
   \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
 
+"
+" Emmet
+" https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
+"
+
+" Remap leader key to C-e
+let g:user_emmet_leader_key='<C-e>'
+
+"
 " Conquer of Completion (coc)
+"
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-tsserver',
@@ -155,7 +187,9 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " coc fails to recognize vue files
 autocmd BufWritePre *.vue Prettier
 
+"
 " Lightline
+"
 let g:lightline = {
   \   'colorscheme': 'wombat',
   \   'active': {
@@ -176,9 +210,7 @@ let g:lightline = {
   \   }
   \ }
 
-"
 " Current filename for lightline
-"
 function! LightlineFilename()
   let root = fnamemodify(get(b:, 'git_dir'), ':h')
   let path = expand('%:p')
@@ -190,12 +222,16 @@ function! LightlineFilename()
   return expand('%')
 endfunction
 
+"
 " Goyo
+"
 autocmd! User GoyoLeave :source $MYVIMRC
 let g:goyo_height = '100%'
 let g:goyo_width = '50%'
 
+"
 " vim-markdown-preview
+"
 let vim_markdown_preview_github=1 " use grip
 let vim_markdown_preview_browser='Brave'
 
@@ -208,7 +244,9 @@ cnoreabbrev hs split
 " Mappings
 " --------------------------------------------------------------
 
+"
 " Leader
+"
 let mapleader="f"
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>N :NERDTreeFind<CR>
@@ -220,13 +258,17 @@ nmap <Leader>gr <Plug>(coc-references)
 nmap <Leader>r :noh<CR>| " Clear search results
 nmap <Leader>m :MaximizerToggle<CR>
 
+"
 " , leader
+"
 nmap ,S <C-w>r<C-w>w<CR>
 nmap ,s :source $MYVIMRC<CR>| " Resource .vimrc file
 nmap ,g :Goyo<CR>Fs<CR>| " Toggle Goyo
 nmap ,r :edit!<CR>
 
+"
 " Misc
+"
 nmap <Tab> :b#<CR>
 nmap / <Plug>(incsearch-easymotion-/)
 
