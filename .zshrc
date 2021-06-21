@@ -103,6 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim='nvim'
 alias v='nvim .'
 alias o='open .'
+alias vrc='nvim ~/dev/dotfiles/.vimrc'
 
 # Python aliases
 alias python='python3'

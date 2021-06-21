@@ -96,7 +96,7 @@ set clipboard=unnamed
 set noshowmode
 set showtabline=1  " Show tabline when there are tabs
 set guioptions-=e  " Don't use GUI tabline
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=500 ttimeoutlen=0
 
 " Change pop up window colors
 hi Pmenu ctermbg=cyan ctermfg=white
@@ -112,7 +112,7 @@ highlight LineNr ctermfg=grey
 highlight clear SignColumn
 
 " Search selected text: //
-vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " Change cursor on INSERT
 let &t_EI = "\033[1 q" " NORMAL
@@ -158,9 +158,8 @@ let g:NERDCustomDelimiters={
 " Emmet
 " https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
 "
-
-" Remap leader key to C-e
-let g:user_emmet_leader_key='<C-e>'
+" Remap leader key to <Leader>e
+let g:user_emmet_leader_key='<Leader>e'
 
 "
 " Conquer of Completion (coc)
@@ -286,3 +285,4 @@ nnoremap <C-k> <C-u>
 " --------------------------------------------------------------
 " https://vim-adventures.com/
 " https://learnvimscriptthehardway.stevelosh.com/
+
