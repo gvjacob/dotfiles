@@ -70,7 +70,7 @@ set ignorecase
 set smartcase
 set linebreak
 set softtabstop=2
-set scrolloff=8
+set scrolloff=10
 set smarttab
 set noswapfile
 set laststatus=2
@@ -86,6 +86,10 @@ set timeoutlen=1000 ttimeoutlen=0
 
 " Change pop up window colors
 hi Pmenu ctermbg=cyan ctermfg=white
+
+" Clear vertical line split
+highlight VertSplit ctermbg=NONE ctermfg=0
+:set fillchars+=vert:\ 
 
 " Set linenumber color
 highlight LineNr ctermfg=grey
