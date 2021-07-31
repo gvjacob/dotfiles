@@ -19,6 +19,8 @@
     "javascriptreact",
     "typescript.tsx",
     "graphql",
+    "css",
+    "scss",
     "python3",
     "vue"
   ],

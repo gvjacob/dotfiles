@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'szw/vim-maximizer'
   Plug 'mattn/emmet-vim'
+  Plug 'romainl/vim-qf'
 
   "
   " Git
@@ -61,7 +62,8 @@ call plug#begin('~/.vim/plugged')
   "
   " Misc
   "
-  Plug 'JamshedVesuna/vim-markdown-preview'
+  Plug 'JamshedVesuna/vim-markdown-preview' " Preview markdown files
+  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " Vim in browser
 
 call plug#end()
 
@@ -92,7 +94,7 @@ set background=dark
 set lazyredraw
 set backspace=2
 set autoread
-set clipboard=unnamed
+set clipboard=unnamedplus
 set noshowmode
 set showtabline=1  " Show tabline when there are tabs
 set guioptions-=e  " Don't use GUI tabline
@@ -103,7 +105,7 @@ hi Pmenu ctermbg=cyan ctermfg=white
 
 " Clear vertical line split
 highlight VertSplit ctermbg=NONE ctermfg=0
-:set fillchars+=vert:\ 
+set fillchars+=vert:\ 
 
 " Set linenumber color
 highlight LineNr ctermfg=grey
@@ -118,8 +120,14 @@ vnoremap / y/\V<C-R>=escape(@",'/\')<CR><CR>
 let &t_EI = "\033[1 q" " NORMAL
 let &t_SI = "\033[5 q" " INSERT
 
+"
+" Autocommands
+"
 autocmd filetype crontab setlocal nobackup nowritebackup
 filetype plugin indent on
+
+" Automatically vertical split help buffers
+autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
 
 
 " --------------------------------------------------------------
@@ -158,16 +166,18 @@ let g:NERDCustomDelimiters={
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
 "
 " Emmet
 " https://raw.githubusercontent.com/mattn/emmet-vim/master/TUTORIAL
 "
 " Remap leader key to <Leader>e
-let g:user_emmet_leader_key='<Leader>e'
+let g:user_emmet_leader_key='<C-e>'
+
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
 
 "
 " Conquer of Completion (coc)
@@ -242,6 +252,19 @@ let g:goyo_width = '50%'
 let vim_markdown_preview_github=1 " use grip
 let vim_markdown_preview_browser='Brave'
 
+
+"
+" Firenvim
+"
+let g:firenvim_config = {
+    \ 'localSettings': {
+        \ '.*': {
+            \ 'priority': 1,
+            \ 'takeover': 'never',
+        \ },
+    \ }
+\ }
+
 " --------------------------------------------------------------
 " Commands
 " --------------------------------------------------------------
@@ -251,12 +274,33 @@ cnoreabbrev hs split
 " Mappings
 " --------------------------------------------------------------
 
+" Go to end of line for yank
+nnoremap Y y$
+
+" Center search steppers
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Center line bumps
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<C-g>u
+inoremap . .<C-g>u
+inoremap ! !<C-g>u
+inoremap ? ?<C-g>u
+
+" Moving lines in visual mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 "
 " Leader
 "
 let mapleader="f"
+nmap <Leader><Leader>n :NERDTreeFocus<CR>
 nmap <Leader>n :NERDTreeToggle<CR>
-nmap <Leader>N :NERDTreeFind<CR>
+nmap <Leader>N :NERDTreeRefreshRoot <Bar> :NERDTreeFind<CR>| " Refresh root before find
 nmap <Leader>p :GFiles --cached --others --exclude-standard<CR>
 nmap <Leader>s :Ag<CR>
 nmap <Leader>/ :BLines<CR>
@@ -264,6 +308,11 @@ nmap <Leader>gd <Plug>(coc-definition)
 nmap <Leader>gr <Plug>(coc-references)
 nmap <Leader>r :noh<CR>| " Clear search results
 nmap <Leader>m :MaximizerToggle<CR>
+nmap <Leader>q <Plug>(qf_qf_toggle)
+
+" Open and close quickfix list
+nmap <Leader>o :copen<CR>
+nmap <Leader>c :ccl<CR>
 
 "
 " , leader
@@ -273,10 +322,15 @@ nmap ,s :source $MYVIMRC<CR>| " Resource .vimrc file
 nmap ,g :Goyo<CR>Fs<CR>| " Toggle Goyo
 nmap ,r :edit!<CR>
 
+
 "
 " Misc
 "
+
 nmap <Tab> :b#<CR>
+"nmap <Tab> :bnext<CR>
+"nmap <S-Tab> :bprevious<CR>
+
 nmap / <Plug>(incsearch-easymotion-/)
 
 " Use C-j and C-k to navigate pop up window
@@ -286,6 +340,11 @@ inoremap <expr> <C-k> pumvisible() ? "<Up>" : ""
 " Use C-j and C-k to navigate page up and down
 nnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
+
+" Keep hold of highlighted block when tabbing
+vnoremap > >gv
+vnoremap < <gv
+
 
 
 " --------------------------------------------------------------

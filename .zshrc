@@ -103,7 +103,7 @@ source $ZSH/oh-my-zsh.sh
 alias vim='nvim'
 alias v='nvim .'
 alias o='open .'
-alias vrc='nvim ~/dev/dotfiles/.vimrc'
+alias vrc='cd ~/dev/dotfiles && nvim .'
 
 # Python aliases
 alias python='python3'
@@ -147,6 +147,10 @@ export JAVA_HOME
 
 # git-fuzzy
 export PATH="/Users/gino/.oh-my-zsh/programs/git-fuzzy/bin:$PATH"
+
+# composer
+export PATH="$HOME/.composer/vendor/bin:$PATH"
+
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gino/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gino/google-cloud-sdk/path.zsh.inc'; fi
