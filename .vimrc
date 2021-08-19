@@ -57,7 +57,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'nelsyeung/twig.vim'
   Plug 'lepture/vim-jinja'
-  Plug 'stanangeloff/php.vim'
 
   "
   " Misc
@@ -81,12 +80,12 @@ set expandtab
 set tabstop=2
 set hidden
 set shiftwidth=2
-set wrap
+set nowrap
 set ignorecase
 set smartcase
 set linebreak
 set softtabstop=2
-set scrolloff=10
+set scrolloff=20
 set smarttab
 set noswapfile
 set laststatus=2
