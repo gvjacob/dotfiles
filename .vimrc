@@ -57,6 +57,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'posva/vim-vue'
   Plug 'nelsyeung/twig.vim'
   Plug 'lepture/vim-jinja'
+  Plug 'jparise/vim-graphql'
 
   "
   " Misc
@@ -128,6 +129,8 @@ filetype plugin indent on
 " Automatically vertical split help buffers
 autocmd! BufEnter * if &ft ==# 'help' | wincmd L | endif
 
+" Activate gruvbox
+" autocmd vimenter * ++nested colorscheme gruvbox
 
 " --------------------------------------------------------------
 " Language
@@ -281,7 +284,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " Center line bumps
-nnoremap J mzJ`z
+nnoremap J mzJx`z
 
 " Undo break points
 inoremap , ,<C-g>u
