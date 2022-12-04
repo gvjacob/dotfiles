@@ -58,12 +58,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'nelsyeung/twig.vim'
   Plug 'lepture/vim-jinja'
   Plug 'jparise/vim-graphql'
+  Plug 'cespare/vim-toml', { 'branch': 'main' }
 
   "
   " Misc
   "
   Plug 'JamshedVesuna/vim-markdown-preview' " Preview markdown files
-  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } } " Vim in browser
 
 call plug#end()
 
@@ -99,6 +99,7 @@ set noshowmode
 set showtabline=1  " Show tabline when there are tabs
 set guioptions-=e  " Don't use GUI tabline
 set timeoutlen=500 ttimeoutlen=0
+set iskeyword-=_ " Set '_' as a keyword
 
 " Change pop up window colors
 hi Pmenu ctermbg=cyan ctermfg=white
@@ -163,6 +164,7 @@ let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDCustomDelimiters={
   \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
+let NERDTreeShowLineNumbers=1
 
 " Exit Vim if NERDTree is the only window left.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
@@ -206,6 +208,10 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " coc fails to recognize vue files
 autocmd BufWritePre *.vue Prettier
 
+let g:coc_filetype_map = {
+		\ 'html.twig.js.css': 'twig',
+		\ }
+
 "
 " Lightline
 "
@@ -247,25 +253,15 @@ endfunction
 autocmd! User GoyoLeave :source $MYVIMRC
 let g:goyo_height = '100%'
 let g:goyo_width = '50%'
+let g:goyo_linenr = 1
+
 
 "
 " vim-markdown-preview
 "
 let vim_markdown_preview_github=1 " use grip
-let vim_markdown_preview_browser='Brave'
+let vim_markdown_preview_browser='Arc'
 
-
-"
-" Firenvim
-"
-let g:firenvim_config = {
-    \ 'localSettings': {
-        \ '.*': {
-            \ 'priority': 1,
-            \ 'takeover': 'never',
-        \ },
-    \ }
-\ }
 
 " --------------------------------------------------------------
 " Commands
@@ -284,7 +280,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " Center line bumps
-nnoremap J mzJx`z
+nnoremap J mzJ`z
 
 " Undo break points
 inoremap , ,<C-g>u
