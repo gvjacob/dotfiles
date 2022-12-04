@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   vi-mode
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,8 +112,6 @@ alias pip='pip3'
 alias jup='jupyter notebook'
 
 alias gfs='git fuzzy status'
-eval $(thefuck --alias)
-
 
 # fix Hyper first line precent sign
 unsetopt PROMPT_SP
@@ -130,16 +129,11 @@ zstyle :compinstall filename '/Users/gino/.zshrc'
 autoload -Uz compinit
 compinit
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath+=$HOME/.zsh/pure
 
 # .zshrc
 autoload -U promptinit; promptinit
 prompt pure
-
-
-if [[ "$PWD" = /Users/gino ]]; then
-  cd dev
-fi
 
 # For scala metals
 JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home"
