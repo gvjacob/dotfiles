@@ -40,6 +40,16 @@ lspconfig['astro'].setup({
   on_attach = on_attach
 })
 
+lspconfig['solargraph'].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
+lspconfig['lua_ls'].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
 -- Set up nvim-cmp.
