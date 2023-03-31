@@ -104,16 +104,6 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
-  ["incsearch-easymotion.vim"] = {
-    loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/incsearch-easymotion.vim",
-    url = "https://github.com/haya14busa/incsearch-easymotion.vim"
-  },
-  ["incsearch.vim"] = {
-    loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/incsearch.vim",
-    url = "https://github.com/haya14busa/incsearch.vim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -174,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-context"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
+  },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
@@ -215,11 +210,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
-  },
-  ["vim-astro"] = {
-    loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/vim-astro",
-    url = "https://github.com/wuelnerdotexe/vim-astro"
   },
   ["vim-easymotion"] = {
     loaded = true,
