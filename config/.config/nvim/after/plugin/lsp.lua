@@ -6,6 +6,7 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
@@ -13,7 +14,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>dk', vim.diagnostic.goto_prev, opts)
   vim.keymap.set('n', '<Leader>dj', vim.diagnostic.goto_next, opts)
   vim.keymap.set('n', '<Leader>dl', ':Telescope diagnostics<CR>', opts)
-end 
+end
 
 lspconfig['html'].setup({
   capabilities = capabilities,
