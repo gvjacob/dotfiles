@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
       { 'PhilRunninger/nerdtree-visual-selection' },
     }
   }
-  use 'easymotion/vim-easymotion'
+  use { 'phaazon/hop.nvim', branch = 'v2' }
   use 'szw/vim-maximizer'
   use {
     'nvim-lualine/lualine.nvim',
