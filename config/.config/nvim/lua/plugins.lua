@@ -20,7 +20,6 @@ return require('packer').startup(function(use)
   -- Editor
   --------------------------------------------
   use "lukas-reineke/indent-blankline.nvim"
-  use { 'phaazon/hop.nvim', branch = 'v2' }
   use 'szw/vim-maximizer'
   use "windwp/nvim-autopairs"
   use "github/copilot.vim"
