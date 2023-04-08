@@ -5,3 +5,4 @@ config/.config/configstore
 config/.config/fish
 config/.config/iterm2
 config/.config/shopify
+config/.config/github-copilot

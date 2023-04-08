@@ -35,6 +35,7 @@ return require('packer').startup(function(use)
       run = ":TSUpdate"
   })
   use "lukas-reineke/indent-blankline.nvim"
+  use "github/copilot.vim"
 
   -- Search
   use {
