@@ -26,6 +26,11 @@ return require('packer').startup(function(use)
   use "github/copilot.vim"
 
   use {
+    'ggandor/leap.nvim',
+    requires = { 'tpope/vim-repeat' }
+  }
+
+  use {
     'nvim-lualine/lualine.nvim',
     requires = {
       { 'kyazdani42/nvim-web-devicons', opt = true },
