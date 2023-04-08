@@ -5,25 +5,26 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  --------------------------------------------
   -- Themes
+  --------------------------------------------
   use "EdenEast/nightfox.nvim"
 
+  --------------------------------------------
   -- Git
+  --------------------------------------------
   use 'tpope/vim-fugitive'
-  use {
-    'lewis6991/gitsigns.nvim',
-    tag = 'release'
-  }
+  use { 'lewis6991/gitsigns.nvim', tag = 'release' }
 
+  --------------------------------------------
   -- Editor
-  use {
-    'scrooloose/nerdtree',
-    requires = {
-      { 'PhilRunninger/nerdtree-visual-selection' },
-    }
-  }
+  --------------------------------------------
+  use "lukas-reineke/indent-blankline.nvim"
   use { 'phaazon/hop.nvim', branch = 'v2' }
   use 'szw/vim-maximizer'
+  use "windwp/nvim-autopairs"
+  use "github/copilot.vim"
+
   use {
     'nvim-lualine/lualine.nvim',
     requires = {
@@ -31,39 +32,48 @@ return require('packer').startup(function(use)
       { 'BurntSushi/ripgrep', opt = true },
     }
   }
-  use("nvim-treesitter/nvim-treesitter", {
-      run = ":TSUpdate"
-  })
-  use "lukas-reineke/indent-blankline.nvim"
-  use "github/copilot.vim"
 
+  use {
+    'scrooloose/nerdtree',
+    requires = { 'PhilRunninger/nerdtree-visual-selection' }
+  }
+
+  --------------------------------------------
   -- Search
+  --------------------------------------------
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+    }
   }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
+  --------------------------------------------
   -- LSP
+  --------------------------------------------
+  use {
+    "williamboman/mason.nvim",
+    requires = { "williamboman/mason.nvim-lspconfig" }
+  }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'L3MON4D3/LuaSnip'
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason.nvim-lspconfig"
-  }
+  use 'numToStr/Comment.nvim'
+  use 'folke/trouble.nvim'
+  use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
+
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
-  use 'numToStr/Comment.nvim'
-  use 'folke/trouble.nvim'
-  use "windwp/nvim-autopairs"
 
+  --------------------------------------------
   -- Languages
+  --------------------------------------------
   use 'jose-elias-alvarez/typescript.nvim'
   use 'mattn/emmet-vim'
 end)
