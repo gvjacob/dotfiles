@@ -1,0 +1,71 @@
+vim.g.mapleader = " "
+vim.g.user_emmet_leader_key = "<C-e>"
+
+--------------------------------------
+-- THEME
+--------------------------------------
+vim.opt.termguicolors = true
+vim.cmd [[ colorscheme nightfox ]]
+
+--------------------------------------
+-- WINDOWS
+--------------------------------------
+vim.opt.splitright = true
+
+--------------------------------------
+-- LINE NUMBERS
+--------------------------------------
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.cursorline = true
+
+-- Set line number color
+vim.cmd [[ highlight LineNr ctermfg=grey ]]
+
+--------------------------------------
+-- FILES
+--------------------------------------
+vim.opt.swapfile = false
+
+--------------------------------------
+-- SEARCH
+--------------------------------------
+vim.opt.hlsearch = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+--------------------------------------
+-- TABS
+--------------------------------------
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.smartindent = true
+
+--------------------------------------
+-- LINES
+--------------------------------------
+vim.opt.wrap = false
+vim.opt.linebreak = true
+vim.opt.scrolloff = 20
+
+--------------------------------------
+-- TIMEOUT
+--------------------------------------
+vim.opt.timeoutlen = 500
+vim.opt.ttimeoutlen = 0
+
+--------------------------------------
+-- MISC
+--------------------------------------
+vim.opt.updatetime = 1000
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.showmode = false
+
+-- Hide split line in vertical split
+vim.cmd [[ highlight VertSplit ctermbg=NONE ctermfg=NONE ]]
+
+-- Remove background color on SignColumn
+vim.cmd [[ highlight clear SignColumn ]]
