@@ -4,6 +4,8 @@ local telescope = require('telescope')
 local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 
+-- Search through all files tracked with git.
+-- If not in a git repo, search through all files in the current directory.
 local function project_files()
     vim.fn.system('git rev-parse --is-inside-work-tree')
 
@@ -14,6 +16,12 @@ local function project_files()
     end
 end
 
+-- Default configuration for all pickers
+-- to use the ivy theme.
+local use_ivy_theme = {
+  theme = "ivy",
+}
+
 telescope.setup {
   defaults = {
     prompt_prefix = "$ ",
@@ -22,34 +30,27 @@ telescope.setup {
       n = {
         ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
       },
+      i = {
+        ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
+      },
     },
   },
 
   pickers = {
-    git_files = {
-      theme = "ivy",
-    },
-    live_grep = {
-      theme = "ivy",
-    },
-    current_buffer_fuzzy_find = {
-      theme = "ivy",
-    },
-    find_files = {
-      theme = "ivy",
-    },
-    buffers = {
-      theme = "ivy",
-    },
-    diagnostics = {
-      theme = "ivy",
-    }
+    git_files = use_ivy_theme,
+    live_grep = use_ivy_theme,
+    current_buffer_fuzzy_find = use_ivy_theme,
+    find_files = use_ivy_theme,
+    buffers = use_ivy_theme,
+    diagnostics = use_ivy_theme,
+    help_tags = use_ivy_theme,
   },
 }
 
 telescope.load_extension('fzf')
 
-vim.keymap.set('n', '<Leader>p', project_files, {})
-vim.keymap.set('n', '<Leader>s', builtin.live_grep, {})
-vim.keymap.set('n', '<Leader>b', builtin.buffers, {})
-vim.keymap.set('n', '<Leader>/', builtin.current_buffer_fuzzy_find, {})
+utils.nmap('<Leader>p', project_files)
+utils.nmap('<Leader>s', builtin.live_grep)
+utils.nmap('<Leader>/', builtin.current_buffer_fuzzy_find)
+utils.nmap('<leader>h', builtin.help_tags)
+utils.nmap('<Leader>b', builtin.buffers)
