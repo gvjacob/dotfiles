@@ -111,12 +111,6 @@ alias vrc='cd ~/dev/dotfiles && nvim .'
 # Python aliases
 alias python='python3'
 alias pip='pip3'
-alias jup='jupyter notebook'
-
-alias gfs='git fuzzy status'
-
-# fix Hyper first line precent sign
-unsetopt PROMPT_SP
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -137,16 +131,8 @@ fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 
-# For scala metals
-JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home"
-export JAVA_HOME
-
-# git-fuzzy
-export PATH="/Users/gino/.oh-my-zsh/programs/git-fuzzy/bin:$PATH"
-
 # composer
 export PATH="$HOME/.composer/vendor/bin:$PATH"
-
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gino/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gino/google-cloud-sdk/path.zsh.inc'; fi
