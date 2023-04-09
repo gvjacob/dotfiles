@@ -3,7 +3,7 @@ local function cursor_location()
   local row, column = unpack(vim.api.nvim_win_get_cursor(0))
   local total_rows = vim.fn.line('$')
 
-  return row .. ':' .. total_rows .. ':' .. column
+  return row .. ':' .. total_rows .. ' ' .. column
 end
 
 require('lualine').setup {
