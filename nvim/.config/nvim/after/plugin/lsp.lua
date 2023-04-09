@@ -1,8 +1,20 @@
--- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local lspconfig = require('lspconfig')
+require('mason').setup()
 
-local on_attach = function(client, bufnr)
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "tsserver",
+    "solargraph",
+    "html",
+    "cssls",
+    "tailwindcss",
+    "astro",
+    "lua_ls"
+  }
+})
+
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+local lspconfig = require('lspconfig')
+local lsp_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -16,39 +28,14 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>dl', ':Telescope diagnostics<CR>', opts)
 end
 
-lspconfig['html'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
 
-lspconfig['tsserver'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
-lspconfig['cssls'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
-lspconfig['tailwindcss'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
-lspconfig['astro'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
-lspconfig['solargraph'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
-})
-
-lspconfig['lua_ls'].setup({
-  capabilities = capabilities,
-  on_attach = on_attach
+require('mason-lspconfig').setup_handlers({
+  function(server_name)
+    lspconfig[server_name].setup({
+      on_attach = lsp_attach,
+      capabilities = lsp_capabilities,
+    })
+  end,
 })
 
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
