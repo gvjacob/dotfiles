@@ -8,9 +8,6 @@ utils.nmap('<Leader>r', ':noh<CR>')
 -- Refresh current buffer
 utils.nmap('<Leader>R', ':edit!<CR>')
 
--- Open Trouble diagnostics
-utils.nmap('<Leader>t', ':TroubleToggle<CR>')
-
 -- Search for highlighted text
 utils.vmap('/', '*')
 

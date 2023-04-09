@@ -1,3 +1,5 @@
+require('utils')
+
 require("trouble").setup({
   position = "bottom",
   icons = false,
@@ -14,3 +16,7 @@ require("trouble").setup({
   },
   use_diagnostic_signs = false
 })
+
+-- Open Trouble diagnostics
+utils.nmap('<Leader>t', ':TroubleToggle<CR>')
+
