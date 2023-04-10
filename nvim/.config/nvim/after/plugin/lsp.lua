@@ -23,6 +23,14 @@ require("LspUI").setup({
       quit = "<Esc>",
     },
   },
+  hover = {
+    keybind = {
+      quit = "<Esc>",
+    },
+  },
+  peek_definition = {
+    enable = true,
+  }
 })
 
 local lsp_attach = function()
@@ -31,6 +39,7 @@ local lsp_attach = function()
   utils.nmap('gd', vim.lsp.buf.definition)
   utils.nmap('gt', vim.lsp.buf.type_definition)
   utils.nmap('gi', vim.lsp.buf.implementation)
+  utils.nmap('gp', ':LspUI peek_definition<CR>')
   utils.nmap('gr', ':LspUI rename<CR>')
   utils.nmap('<Leader>dk', vim.diagnostic.goto_prev)
   utils.nmap('<Leader>dj', vim.diagnostic.goto_next)
