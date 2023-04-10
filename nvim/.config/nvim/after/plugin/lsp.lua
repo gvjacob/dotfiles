@@ -16,11 +16,16 @@ require('mason-lspconfig').setup({
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-local lsp_ui = require("LspUI").api
 
-local lsp_attach = function(_, bufnr)
-  local opts = { noremap = true, silent = true, buffer = bufnr }
+require("LspUI").setup({
+  code_action = {
+    keybind = {
+      quit = "<Esc>",
+    },
+  },
+})
 
+local lsp_attach = function()
   utils.nmap('K', ':LspUI hover<CR>')
   utils.nmap('ga', ':LspUI code_action<CR>')
   utils.nmap('gd', vim.lsp.buf.definition)
