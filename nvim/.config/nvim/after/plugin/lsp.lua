@@ -1,3 +1,5 @@
+require('utils')
+
 require('mason').setup()
 
 require('mason-lspconfig').setup({
@@ -14,18 +16,20 @@ require('mason-lspconfig').setup({
 
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
+local lsp_ui = require("LspUI").api
+
 local lsp_attach = function(_, bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<Leader>dk', vim.diagnostic.goto_prev, opts)
-  vim.keymap.set('n', '<Leader>dj', vim.diagnostic.goto_next, opts)
-  vim.keymap.set('n', '<Leader>dl', ':Telescope diagnostics<CR>', opts)
+  utils.nmap('K', ':LspUI hover<CR>')
+  utils.nmap('ga', ':LspUI code_action<CR>')
+  utils.nmap('gd', vim.lsp.buf.definition)
+  utils.nmap('gt', vim.lsp.buf.type_definition)
+  utils.nmap('gi', vim.lsp.buf.implementation)
+  utils.nmap('gr', ':LspUI rename<CR>')
+  utils.nmap('<Leader>dk', vim.diagnostic.goto_prev)
+  utils.nmap('<Leader>dj', vim.diagnostic.goto_next)
+  utils.nmap('<Leader>dl', ':Telescope diagnostics<CR>')
 end
 
 

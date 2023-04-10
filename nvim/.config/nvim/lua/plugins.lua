@@ -74,6 +74,13 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' }
   }
 
+  use {
+    "jinzhongjia/LspUI.nvim",
+    config = function()
+      require("LspUI").setup()
+    end
+  }
+
   --------------------------------------------
   -- Languages
   --------------------------------------------
