@@ -1,5 +1,5 @@
 require('utils')
 
-utils.map({ 'n', 'v' }, 't', "<Plug>(leap-forward-to)")
-utils.map({ 'n', 'v' }, 'T', "<Plug>(leap-backward-to)")
-utils.map('n', '<C-w>t', "<Plug>(leap-from-window)")
+utils.map({ 'n', 'v' }, 'f', "<Plug>(leap-forward-to)")
+utils.map({ 'n', 'v' }, 'F', "<Plug>(leap-backward-to)")
+utils.map('n', '<C-w>f', "<Plug>(leap-from-window)")
