@@ -51,6 +51,11 @@ vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.scrolloff = 20
 
+vim.cmd([[
+  " Automatically wrap lines for markdown files.
+  autocmd FileType markdown setlocal wrap
+]])
+
 --------------------------------------
 -- TIMEOUT
 --------------------------------------
