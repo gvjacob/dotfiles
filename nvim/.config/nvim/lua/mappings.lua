@@ -15,13 +15,15 @@ utils.nmap('N', 'Nzzzv')
 -- Center line bumps
 utils.nmap('J', 'mzJ`z')
 
--- Moving lines in visual mode
-utils.vmap('J', [[ :m '>+1<CR>gv=gv ]])
-utils.vmap('K', [[ :m '<-2<CR>gv=gv ]])
-
 -- Use C-j and C-k to navigate page up and down
-utils.nmap('<C-j>', '<C-d>')
-utils.nmap('<C-k>', '<C-u>')
+utils.nmap('<C-k>', '{')
+utils.nmap('<C-j>', '}')
+utils.vmap('<C-k>', '{')
+utils.vmap('<C-j>', '}')
+
+-- Step between buffers
+utils.nmap('H', '<Cmd>bprevious<CR>')
+utils.nmap('L', '<Cmd>bnext<CR>')
 
 -- Keep hold of highlighted block when tabbing
 utils.vmap('>', '>gv')

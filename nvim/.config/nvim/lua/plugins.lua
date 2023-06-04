@@ -20,9 +20,10 @@ return require('packer').startup(function(use)
   -- Editor
   --------------------------------------------
   use "lukas-reineke/indent-blankline.nvim"
-  use 'szw/vim-maximizer'
+  use "szw/vim-maximizer"
   use "windwp/nvim-autopairs"
   use "github/copilot.vim"
+  use "fedepujol/move.nvim"
 
   use {
     'ggandor/leap.nvim',
@@ -40,6 +41,8 @@ return require('packer').startup(function(use)
     'scrooloose/nerdtree',
     requires = { 'PhilRunninger/nerdtree-visual-selection' }
   }
+
+  use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
 
   --------------------------------------------
   -- Search
@@ -81,4 +84,5 @@ return require('packer').startup(function(use)
   --------------------------------------------
   use 'jose-elias-alvarez/typescript.nvim'
   use 'mattn/emmet-vim'
+  use 'NoahTheDuke/vim-just'
 end)

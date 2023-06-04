@@ -119,6 +119,12 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["glow.nvim"] = {
+    config = { "\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tglow\frequire\0" },
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/glow.nvim",
+    url = "https://github.com/ellisonleao/glow.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -143,6 +149,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/mason.nvim-lspconfig",
     url = "https://github.com/williamboman/mason.nvim-lspconfig"
+  },
+  ["move.nvim"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/move.nvim",
+    url = "https://github.com/fedepujol/move.nvim"
   },
   nerdtree = {
     loaded = true,
@@ -225,6 +236,11 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
   },
+  ["vim-just"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/vim-just",
+    url = "https://github.com/NoahTheDuke/vim-just"
+  },
   ["vim-maximizer"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/vim-maximizer",
@@ -238,6 +254,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: glow.nvim
+time([[Config for glow.nvim]], true)
+try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tglow\frequire\0", "config", "glow.nvim")
+time([[Config for glow.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
