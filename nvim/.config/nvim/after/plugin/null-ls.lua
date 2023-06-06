@@ -1,6 +1,15 @@
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require("null-ls")
 
+require("mason-null-ls").setup({
+    ensure_installed = {
+      "prettier",
+      "jq",
+      "eslint",
+      "black",
+    }
+})
+
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettier.with({
@@ -8,6 +17,8 @@ null_ls.setup({
     }),
     null_ls.builtins.formatting.jq,
     null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.ruff,
   },
 
   on_attach = function(client, bufnr)

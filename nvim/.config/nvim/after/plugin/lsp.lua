@@ -4,12 +4,20 @@ require('mason').setup()
 
 require('mason-lspconfig').setup({
   ensure_installed = {
-    "tsserver",
-    "solargraph",
+    -- Web development
     "html",
+    "tsserver",
     "cssls",
     "tailwindcss",
     "astro",
+
+    -- Python
+    "pyright",
+
+    -- Ruby
+    "solargraph",
+
+    -- Lua
     "lua_ls"
   }
 })

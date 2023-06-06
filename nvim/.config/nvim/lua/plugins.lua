@@ -60,7 +60,10 @@ return require('packer').startup(function(use)
   --------------------------------------------
   use {
     "williamboman/mason.nvim",
-    requires = { "williamboman/mason.nvim-lspconfig" }
+    requires = {
+      "williamboman/mason.nvim-lspconfig",
+      "jay-babu/mason-null-ls.nvim"
+    }
   }
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
