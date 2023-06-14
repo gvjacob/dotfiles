@@ -31,6 +31,14 @@ return require('packer').startup(function(use)
   }
 
   use {
+    "folke/noice.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  }
+
+  use {
     'nvim-lualine/lualine.nvim',
     requires = {
       { 'BurntSushi/ripgrep', opt = true },
