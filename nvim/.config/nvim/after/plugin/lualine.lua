@@ -19,6 +19,6 @@ require('lualine').setup {
     lualine_c = { 'diagnostics' },
     lualine_x = { 'filetype', 'branch' },
     lualine_y = { cursor_location },
-    lualine_z = { 'searchcount' },
+    lualine_z = {},
   },
 }
