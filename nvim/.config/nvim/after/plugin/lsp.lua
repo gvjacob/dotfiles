@@ -42,7 +42,7 @@ require("LspUI").setup({
 })
 
 local lsp_attach = function()
-  utils.nmap('K', ':LspUI hover<CR>')
+  utils.nmap('K', vim.lsp.buf.hover)
   utils.nmap('ga', ':LspUI code_action<CR>')
   utils.nmap('gd', vim.lsp.buf.definition)
   utils.nmap('gt', vim.lsp.buf.type_definition)
