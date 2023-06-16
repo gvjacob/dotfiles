@@ -21,10 +21,10 @@ require('neo-tree').setup({
         conflict  = "=",
       }
     }
-    
   },
   window = {
     position = "current",
+    width = 30,
   },
   filesystem = {
     filtered_items = {
@@ -42,4 +42,5 @@ require('neo-tree').setup({
   }
 })
 
-utils.nmap("<Leader>f", ":NeoTreeFloatToggle<CR>")
+utils.nmap("<Leader>f", ":Neotree show focus left toggle<CR>")
+utils.nmap("<Leader>F", ":Neotree show focus left reveal<CR>")
