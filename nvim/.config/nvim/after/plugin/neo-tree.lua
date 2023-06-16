@@ -1,3 +1,6 @@
+vim.cmd [[ hi NeoTreeNormal guibg=#192230 ]]
+vim.cmd [[ hi NeoTreeRootName guifg=#82B29A ]]
+
 require('neo-tree').setup({
   close_if_last_window = true,
   popup_border_style = "rounded",
