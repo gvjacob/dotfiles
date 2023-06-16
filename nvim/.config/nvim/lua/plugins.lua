@@ -20,10 +20,10 @@ return require('packer').startup(function(use)
   -- Editor
   --------------------------------------------
   use "lukas-reineke/indent-blankline.nvim"
-  use "szw/vim-maximizer"
   use "windwp/nvim-autopairs"
   use "github/copilot.vim"
   use "fedepujol/move.nvim"
+  use "folke/zen-mode.nvim"
 
   use {
     'ggandor/leap.nvim',
@@ -81,14 +81,13 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'numToStr/Comment.nvim'
   use 'folke/trouble.nvim'
+  use 'jinzhongjia/LspUI.nvim'
   use { "nvim-treesitter/nvim-treesitter", { run = ":TSUpdate" } }
 
   use {
     'jose-elias-alvarez/null-ls.nvim',
     requires = { 'nvim-lua/plenary.nvim' }
   }
-
-  use { "jinzhongjia/LspUI.nvim" }
 
   --------------------------------------------
   -- Languages
