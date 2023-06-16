@@ -18,8 +18,8 @@ require("noice").setup({
   messages = {
     enabled = true,
     view = "mini",
-    view_error = "notify",
-    view_warn = "notify",
+    view_error = "mini",
+    view_warn = "mini",
   },
 
   cmdline = {

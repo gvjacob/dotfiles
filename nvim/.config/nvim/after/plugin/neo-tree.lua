@@ -18,6 +18,14 @@ require('neo-tree').setup({
       visible = true,
       never_show = { ".DS_Store" }
     }
+  },
+  event_handlers = {
+    {
+      event = "neo_tree_buffer_enter",
+      handler = function()
+        vim.cmd [[ setlocal relativenumber ]]
+      end,
+    }
   }
 })
 
