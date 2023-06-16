@@ -11,7 +11,17 @@ require('neo-tree').setup({
       folder_empty = "◻",
       default = "*",
       highlight = "NeoTreeFileIcon"
+    },
+    git_status = {
+      symbols = {
+        untracked = "|",
+        ignored   = "",
+        unstaged  = "U",
+        staged    = "S",
+        conflict  = "=",
+      }
     }
+    
   },
   window = {
     position = "current",
