@@ -29,7 +29,7 @@ require('neo-tree').setup({
   filesystem = {
     filtered_items = {
       visible = true,
-      never_show = { ".DS_Store" }
+      never_show = { ".DS_Store", '.git' }
     }
   },
   event_handlers = {
