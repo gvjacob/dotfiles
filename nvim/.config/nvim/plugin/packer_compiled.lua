@@ -165,15 +165,10 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/move.nvim",
     url = "https://github.com/fedepujol/move.nvim"
   },
-  nerdtree = {
+  ["neo-tree.nvim"] = {
     loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nerdtree",
-    url = "https://github.com/scrooloose/nerdtree"
-  },
-  ["nerdtree-visual-selection"] = {
-    loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nerdtree-visual-selection",
-    url = "https://github.com/PhilRunninger/nerdtree-visual-selection"
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
   ["nightfox.nvim"] = {
     loaded = true,

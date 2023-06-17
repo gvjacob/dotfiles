@@ -47,8 +47,12 @@ return require('packer').startup(function(use)
   }
 
   use {
-    'scrooloose/nerdtree',
-    requires = { 'PhilRunninger/nerdtree-visual-selection' }
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    }
   }
 
   use { "ellisonleao/glow.nvim", config = function() require("glow").setup() end }
