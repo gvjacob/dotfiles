@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
   use "github/copilot.vim"
   use "fedepujol/move.nvim"
   use "folke/zen-mode.nvim"
+  use "declancm/cinnamon.nvim"
 
   use {
     'ggandor/leap.nvim',

@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["cinnamon.nvim"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/cinnamon.nvim",
+    url = "https://github.com/declancm/cinnamon.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -160,10 +165,15 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/move.nvim",
     url = "https://github.com/fedepujol/move.nvim"
   },
-  ["neo-tree.nvim"] = {
+  nerdtree = {
     loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
-    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/scrooloose/nerdtree"
+  },
+  ["nerdtree-visual-selection"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nerdtree-visual-selection",
+    url = "https://github.com/PhilRunninger/nerdtree-visual-selection"
   },
   ["nightfox.nvim"] = {
     loaded = true,
