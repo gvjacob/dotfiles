@@ -1,3 +1,5 @@
+require('utils')
+
 vim.cmd [[ hi NeoTreeNormal guibg=#192230 ]]
 vim.cmd [[ hi NeoTreeRootName guifg=#82B29A ]]
 
@@ -29,7 +31,7 @@ require('neo-tree').setup({
   filesystem = {
     filtered_items = {
       visible = true,
-      never_show = { ".DS_Store", '.git' }
+      never_show = { ".DS_Store", '.git' },
     }
   },
   event_handlers = {
