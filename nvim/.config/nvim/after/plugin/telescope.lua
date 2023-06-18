@@ -39,6 +39,7 @@ telescope.setup {
   pickers = {
     git_files = use_ivy_theme,
     live_grep = use_ivy_theme,
+    grep_string = use_ivy_theme,
     current_buffer_fuzzy_find = use_ivy_theme,
     find_files = use_ivy_theme,
     buffers = use_ivy_theme,
@@ -50,7 +51,7 @@ telescope.setup {
 telescope.load_extension('fzf')
 
 utils.nmap('<Leader>p', project_files)
-utils.nmap('<Leader>s', builtin.live_grep)
+utils.nmap('<Leader>s', ':Telescope grep_string search=""<CR>')
 utils.nmap('<Leader>/', builtin.current_buffer_fuzzy_find)
 utils.nmap('<Leader>h', builtin.help_tags)
 utils.nmap('<Leader>b', builtin.buffers)
