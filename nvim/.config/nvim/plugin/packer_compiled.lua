@@ -195,6 +195,11 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
+  ["nvim-bqf"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nvim-bqf",
+    url = "https://github.com/kevinhwang91/nvim-bqf"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -250,6 +255,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/typescript.nvim",
     url = "https://github.com/jose-elias-alvarez/typescript.nvim"
+  },
+  ["vim-enmasse"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/vim-enmasse",
+    url = "https://github.com/Olical/vim-enmasse"
   },
   ["vim-fugitive"] = {
     loaded = true,
