@@ -31,3 +31,6 @@ utils.vmap('<', '<gv')
 
 -- Swap windows
 utils.nmap('<Leader>S', '<C-w>r<C-w>w<CR>')
+
+-- Jump to first character of line
+utils.nmap('0', '^')
