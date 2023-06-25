@@ -41,8 +41,14 @@ require('neo-tree').setup({
         vim.cmd [[ setlocal relativenumber ]]
       end,
     }
-  }
+  },
+  sources = {
+    "filesystem",
+    "buffers",
+    "document_symbols",
+  },
 })
 
+utils.nmap("<Leader>o", ":Neotree document_symbols float toggle<CR>")
 utils.nmap("<Leader>f", ":Neotree show focus left toggle<CR>")
 utils.nmap("<Leader>F", ":Neotree show focus left reveal<CR>")
