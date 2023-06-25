@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
   -- Themes
   --------------------------------------------
   use "EdenEast/nightfox.nvim"
+  use "oxfist/night-owl.nvim"
 
   --------------------------------------------
   -- Git

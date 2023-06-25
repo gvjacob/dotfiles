@@ -1,7 +1,6 @@
 require('utils')
 
-vim.cmd [[ hi NeoTreeNormal guibg=#192230 ]]
-vim.cmd [[ hi NeoTreeRootName guifg=#82B29A ]]
+vim.cmd [[ hi NeoTreeNormal guibg=#021527 ]]
 
 require('neo-tree').setup({
   close_if_last_window = true,

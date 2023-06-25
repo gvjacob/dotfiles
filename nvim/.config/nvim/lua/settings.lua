@@ -5,7 +5,7 @@ vim.g.user_emmet_leader_key = "<C-e>"
 -- THEME
 --------------------------------------
 vim.opt.termguicolors = true
-vim.cmd [[ colorscheme nightfox ]]
+vim.cmd [[ colorscheme night-owl ]]
 
 --------------------------------------
 -- WINDOWS
