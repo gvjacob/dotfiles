@@ -1,5 +1,12 @@
 require('utils')
 
+-- Change current work on Enter
+utils.nmap('<CR>', 'ciw')
+
+-- Show git changes
+utils.nmap(' <CR>', ':Gitsigns toggle_deleted<CR>:Gitsigns toggle_word_diff<CR>')
+
+-- Toggle to previous buffer
 utils.nmap('<Tab>', ':b#<CR>')
 
 --Exit out of search
