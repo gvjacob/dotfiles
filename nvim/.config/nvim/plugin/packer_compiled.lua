@@ -286,6 +286,11 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
   },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
+  },
   ["zen-mode.nvim"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",

@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use "declancm/cinnamon.nvim"
   use "Olical/vim-enmasse"
   use "kevinhwang91/nvim-bqf"
+  use "folke/which-key.nvim"
 
   use {
     'ggandor/leap.nvim',

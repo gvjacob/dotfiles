@@ -1,19 +1,20 @@
 utils = {}
 
-function utils.map(mode, shortcut, command)
-  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true })
+function utils.map(mode, shortcut, command, desc)
+  desc = desc or ''
+  vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, desc = desc })
 end
 
-function utils.nmap(shortcut, command)
-  utils.map('n', shortcut, command)
+function utils.nmap(shortcut, command, desc)
+  utils.map('n', shortcut, command, desc)
 end
 
-function utils.imap(shortcut, command)
-  utils.map('i', shortcut, command)
+function utils.imap(shortcut, command, desc)
+  utils.map('i', shortcut, command, desc)
 end
 
-function utils.vmap(shortcut, command)
-  utils.map('v', shortcut, command)
+function utils.vmap(shortcut, command, desc)
+  utils.map('v', shortcut, command, desc)
 end
 
 return utils
