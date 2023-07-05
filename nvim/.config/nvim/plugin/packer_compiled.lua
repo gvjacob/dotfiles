@@ -170,11 +170,6 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
-  ["night-owl.nvim"] = {
-    loaded = true,
-    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/night-owl.nvim",
-    url = "https://github.com/oxfist/night-owl.nvim"
-  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
