@@ -170,6 +170,11 @@ _G.packer_plugins = {
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/neo-tree.nvim",
     url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/Users/gino/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "/Users/gino/.local/share/nvim/site/pack/packer/start/nightfox.nvim",

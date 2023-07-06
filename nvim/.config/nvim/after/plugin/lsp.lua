@@ -1,5 +1,8 @@
 require('utils')
 
+-- IMPORTANT: neodev needs to be setup before lsp config.
+require("neodev").setup()
+
 require('mason').setup()
 
 require('mason-lspconfig').setup({

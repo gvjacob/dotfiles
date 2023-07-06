@@ -104,4 +104,5 @@ return require('packer').startup(function(use)
   use 'jose-elias-alvarez/typescript.nvim'
   use 'mattn/emmet-vim'
   use 'NoahTheDuke/vim-just'
+  use 'folke/neodev.nvim'
 end)
