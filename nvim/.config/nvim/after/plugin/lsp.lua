@@ -21,7 +21,11 @@ require('mason-lspconfig').setup({
     "solargraph",
 
     -- Lua
-    "lua_ls"
+    "lua_ls",
+
+    -- Docker
+    "docker_compose_language_service",
+    "dockerls"
   }
 })
 
