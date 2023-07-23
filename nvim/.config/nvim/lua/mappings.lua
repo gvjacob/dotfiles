@@ -3,9 +3,6 @@ require('utils')
 -- Change current work on Enter
 utils.nmap('<CR>', 'ciw')
 
--- Toggle to previous buffer
-utils.nmap('<Tab>', ':b#<CR>')
-
 --Exit out of search
 utils.nmap('<Leader>r', ':noh<CR>')
 
@@ -26,8 +23,11 @@ utils.vmap('<C-k>', '{')
 utils.vmap('<C-j>', '}')
 
 -- Step between buffers
-utils.nmap('H', '<Cmd>bprevious<CR>')
-utils.nmap('L', '<Cmd>bnext<CR>')
+utils.nmap('<Tab>', ':bnext<CR>')
+utils.nmap('<S-Tab>', ':bprevious<CR>')
+
+-- Delete buffer
+utils.nmap('<Leader>bd', ':bdelete<CR>')
 
 -- Keep hold of highlighted block when tabbing
 utils.vmap('>', '>gv')
