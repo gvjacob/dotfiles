@@ -17,6 +17,9 @@ require('neo-tree').setup({
   window = {
     position = "current",
     width = 30,
+    mappings = {
+      ["/"] = false,
+    },
   },
   filesystem = {
     filtered_items = {
