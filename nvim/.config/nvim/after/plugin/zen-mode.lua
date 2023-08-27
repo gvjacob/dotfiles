@@ -2,7 +2,7 @@ require('utils')
 
 require('zen-mode').setup({
   window = {
-    width = 0.8
+    width = 0.8,
   }
 })
 

@@ -22,9 +22,8 @@ utils.nmap('<C-j>', '}')
 utils.vmap('<C-k>', '{')
 utils.vmap('<C-j>', '}')
 
--- Step between buffers
-utils.nmap('<Tab>', ':bnext<CR>')
-utils.nmap('<S-Tab>', ':bprevious<CR>')
+-- Step between most recent buffer
+utils.nmap('<Tab>', ':b#<CR>')
 
 -- Delete buffer
 utils.nmap('<Leader>bd', ':bdelete<CR>')
