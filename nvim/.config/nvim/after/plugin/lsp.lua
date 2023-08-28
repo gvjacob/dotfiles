@@ -13,12 +13,16 @@ require('mason-lspconfig').setup({
     "cssls",
     "tailwindcss",
     "astro",
+    "svelte",
 
     -- Python
     "pyright",
 
     -- Ruby
     "solargraph",
+
+    -- Elixir
+    "elixirls",
 
     -- Lua
     "lua_ls",
