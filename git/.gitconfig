@@ -3,6 +3,7 @@
 	name = gvjacob
 [push]
 	default = current
+	autoSetupRemote = true
 [pull]
 	rebase = true
 [init]
