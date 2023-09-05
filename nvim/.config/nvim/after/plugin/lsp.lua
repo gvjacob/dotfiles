@@ -80,6 +80,12 @@ require('mason-lspconfig').setup_handlers({
           },
         }
       })
+    elseif server == 'emmet_ls' then
+      lspconfig[server].setup({
+        on_attach = lsp_attach,
+        capabilities = lsp_capabilities,
+        filetypes = { "astro", "css", "eruby", "html", "twig", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "svelte", "typescriptreact", "vue" }
+      })
     else
       lspconfig[server].setup({
         on_attach = lsp_attach,
