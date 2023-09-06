@@ -99,7 +99,11 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "numToStr/Comment.nvim",
   "folke/trouble.nvim",
-  "jinzhongjia/LspUI.nvim",
+
+  {
+    "jinzhongjia/LspUI.nvim",
+    branch = "legacy"
+  },
 
   {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
