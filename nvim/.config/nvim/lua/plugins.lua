@@ -17,7 +17,11 @@ require("lazy").setup({
   --------------------------------------------
   -- Themes
   --------------------------------------------
-  "EdenEast/nightfox.nvim",
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = false,
+    priority = 1000
+  },
 
   --------------------------------------------
   -- Git
@@ -36,6 +40,7 @@ require("lazy").setup({
   "Olical/vim-enmasse",
   "kevinhwang91/nvim-bqf",
   "folke/which-key.nvim",
+  "mattn/emmet-vim",
 
   {
     'ggandor/leap.nvim',
@@ -49,6 +54,7 @@ require("lazy").setup({
 
   {
     'nvim-lualine/lualine.nvim',
+    lazy = false,
     dependencies = {
       { 'BurntSushi/ripgrep', lazy = true },
     }
@@ -56,6 +62,7 @@ require("lazy").setup({
 
   {
     "nvim-neo-tree/neo-tree.nvim",
+    lazy = false,
     branch = "v2.x",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -74,6 +81,7 @@ require("lazy").setup({
   --------------------------------------------
   {
     'nvim-telescope/telescope.nvim',
+    lazy = false,
     tag = '0.1.0',
     dependencies = {
       "nvim-lua/plenary.nvim",
