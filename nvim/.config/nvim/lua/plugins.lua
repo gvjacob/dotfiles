@@ -40,7 +40,6 @@ require("lazy").setup({
   "Olical/vim-enmasse",
   "kevinhwang91/nvim-bqf",
   "folke/which-key.nvim",
-  "mattn/emmet-vim",
 
   {
     'ggandor/leap.nvim',
@@ -128,4 +127,5 @@ require("lazy").setup({
   "jose-elias-alvarez/typescript.nvim",
   "NoahTheDuke/vim-just",
   "folke/neodev.nvim",
+  "mattn/emmet-vim",
 })

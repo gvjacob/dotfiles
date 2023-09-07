@@ -1,6 +1,6 @@
 require('utils')
 
--- Change current work on Enter
+-- Change current word on Enter
 utils.nmap('<CR>', 'ciw')
 
 --Exit out of search
@@ -15,6 +15,9 @@ utils.nmap('N', 'Nzzzv')
 
 -- Center line bumps
 utils.nmap('J', 'mzJ`z')
+
+-- Yank to system clipboard
+utils.nmap('Y', '"+y')
 
 -- Use C-j and C-k to navigate page up and down
 utils.nmap('<C-k>', '{')
