@@ -17,7 +17,7 @@ utils.nmap('N', 'Nzzzv')
 utils.nmap('J', 'mzJ`z')
 
 -- Yank to system clipboard
-utils.nmap('Y', '"+y')
+utils.vmap('Y', '"+y')
 
 -- Use C-j and C-k to navigate page up and down
 utils.nmap('<C-k>', '{')
