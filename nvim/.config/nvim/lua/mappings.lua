@@ -16,14 +16,14 @@ utils.nmap('N', 'Nzzzv')
 -- Center line bumps
 utils.nmap('J', 'mzJ`z')
 
--- Yank to system clipboard
-utils.vmap('Y', '"+y')
-
 -- Use C-j and C-k to navigate page up and down
 utils.nmap('<C-k>', '{')
 utils.nmap('<C-j>', '}')
 utils.vmap('<C-k>', '{')
 utils.vmap('<C-j>', '}')
+
+-- Edit .env file
+utils.nmap('<Leader>e', ':e .env<CR>')
 
 -- Step between most recent buffer
 utils.nmap('<Tab>', ':b#<CR>')
