@@ -10,6 +10,7 @@ vim.opt.termguicolors = true
 -- WINDOWS
 --------------------------------------
 vim.opt.splitright = true
+vim.opt.splitbelow = true
 
 --------------------------------------
 -- LINE NUMBERS
@@ -66,7 +67,7 @@ vim.opt.ttimeoutlen = 0
 --------------------------------------
 vim.opt.updatetime = 1000
 vim.opt.showmode = false
--- vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'
 
 -- Hide split line in vertical split
 vim.cmd [[ highlight VertSplit ctermbg=NONE ctermfg=NONE ]]

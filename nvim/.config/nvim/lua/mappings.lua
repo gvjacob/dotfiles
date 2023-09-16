@@ -35,5 +35,9 @@ utils.nmap('<Leader>bd', ':bdelete<CR>')
 utils.vmap('>', '>gv')
 utils.vmap('<', '<gv')
 
+-- Open horizontal and vertical splits
+utils.nmap('<Leader>vs', ':vsplit<CR>')
+utils.nmap('<Leader>hs', ':split<CR>')
+
 -- Swap windows
 utils.nmap('<Leader>S', '<C-w>r<C-w>w<CR>')
