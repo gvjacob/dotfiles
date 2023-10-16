@@ -42,6 +42,5 @@ require('neo-tree').setup({
   },
 })
 
-utils.nmap("<Leader>o", ":Neotree document_symbols float toggle<CR>")
 utils.nmap("<Leader>f", ":Neotree show focus left toggle<CR>")
 utils.nmap("<Leader>F", ":Neotree show focus left reveal<CR>")

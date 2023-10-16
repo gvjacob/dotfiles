@@ -44,6 +44,8 @@ telescope.setup {
     buffers = use_ivy_theme,
     diagnostics = use_ivy_theme,
     help_tags = use_ivy_theme,
+    lsp_dynamic_workspace_symbols = use_ivy_theme,
+    lsp_document_symbols = use_ivy_theme,
   },
 }
 
@@ -54,4 +56,6 @@ utils.nmap('<Leader>s', builtin.live_grep, "Search files by text")
 utils.nmap('<Leader>/', builtin.current_buffer_fuzzy_find, "Fuzzy search current buffer")
 utils.nmap('<Leader>h', builtin.help_tags, "Search help tags")
 utils.nmap('<Leader>b', builtin.buffers, "Find buffer by name")
+utils.nmap('<Leader>o', builtin.lsp_dynamic_workspace_symbols, "Find all symbols in workspace")
+utils.nmap('<Leader><Leader>o', builtin.lsp_document_symbols, "Find all symbols in current buffer")
 utils.nmap('<Leader>gg', builtin.git_branches, "Find and switch to git branch")
