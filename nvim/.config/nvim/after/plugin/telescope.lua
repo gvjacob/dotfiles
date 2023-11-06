@@ -52,7 +52,15 @@ telescope.setup {
 telescope.load_extension('fzf')
 
 utils.nmap('<Leader>p', project_files, "Find project file by name")
-utils.nmap('<Leader>s', builtin.live_grep, "Search files by text")
+
+utils.nmap('<Leader>s', function ()
+  builtin.live_grep({
+    additional_args = function ()
+      return { '--fixed-strings' }
+    end,
+  })
+end, "Search files by text")
+
 utils.nmap('<Leader>/', builtin.current_buffer_fuzzy_find, "Fuzzy search current buffer")
 utils.nmap('<Leader>h', builtin.help_tags, "Search help tags")
 utils.nmap('<Leader>b', builtin.buffers, "Find buffer by name")
