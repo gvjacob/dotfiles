@@ -36,7 +36,6 @@ require("lazy").setup({
   "github/copilot.vim",
   "fedepujol/move.nvim",
   "folke/zen-mode.nvim",
-  "declancm/cinnamon.nvim",
   "Olical/vim-enmasse",
   "kevinhwang91/nvim-bqf",
   "folke/which-key.nvim",
