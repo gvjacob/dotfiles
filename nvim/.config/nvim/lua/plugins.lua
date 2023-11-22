@@ -102,10 +102,17 @@ require("lazy").setup({
     }
   },
   "neovim/nvim-lspconfig",
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
+
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "jcha0713/cmp-tw2css",
+    }
+  },
+
   "L3MON4D3/LuaSnip",
   "numToStr/Comment.nvim",
   "folke/trouble.nvim",

@@ -104,6 +104,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
+        { name = 'cmp-tw2css' },
     }, {
         { name = 'buffer' },
     })
