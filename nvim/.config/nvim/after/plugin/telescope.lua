@@ -67,4 +67,5 @@ utils.nmap('<Leader><Leader>o', builtin.lsp_document_symbols, "Find all symbols 
 
 utils.nmap('<Leader>h', builtin.help_tags, "Search help tags")
 utils.nmap('<Leader>b', builtin.buffers, "Find buffer by name")
+utils.nmap('<Leader>t', builtin.diagnostics, "Find diagnostics")
 utils.nmap('<Leader>gg', builtin.git_branches, "Find and switch to git branch")

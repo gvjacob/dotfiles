@@ -11,5 +11,5 @@ require("trouble").setup({
 })
 
 -- Open Trouble diagnostics
-utils.nmap('<Leader>t', ':TroubleToggle<CR>')
+-- utils.nmap('<Leader>t', ':TroubleToggle<CR>')
 
