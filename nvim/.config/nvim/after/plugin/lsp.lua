@@ -34,30 +34,13 @@ require('mason-lspconfig').setup({
 local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
 
-require("LspUI").setup({
-  code_action = {
-    keybind = {
-      quit = "<Esc>",
-    },
-  },
-  hover = {
-    keybind = {
-      quit = "<Esc>",
-    },
-  },
-  peek_definition = {
-    enable = true,
-  }
-})
-
 local lsp_attach = function()
   utils.nmap('K', vim.lsp.buf.hover)
-  utils.nmap('ga', ':LspUI code_action<CR>')
+  utils.nmap('ga', vim.lsp.buf.code_action)
   utils.nmap('gd', vim.lsp.buf.definition)
   utils.nmap('gt', vim.lsp.buf.type_definition)
   utils.nmap('gi', vim.lsp.buf.references)
-  utils.nmap('gp', ':LspUI peek_definition<CR>')
-  utils.nmap('gr', ':LspUI rename<CR>')
+  utils.nmap('gr', vim.lsp.buf.rename)
   utils.nmap('<Leader>dk', vim.diagnostic.goto_prev)
   utils.nmap('<Leader>dj', vim.diagnostic.goto_next)
   utils.nmap('<Leader>dl', ':Telescope diagnostics<CR>')
@@ -84,7 +67,7 @@ require('mason-lspconfig').setup_handlers({
       lspconfig[server].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
-        filetypes = { "astro", "css", "eruby", "html", "twig", "htmldjango", "javascriptreact", "less", "pug", "sass", "scss", "svelte", "typescriptreact", "vue" }
+        filetypes = { "astro", "html", "twig", "javascriptreact", "svelte", "typescriptreact", "vue" }
       })
     else
       lspconfig[server].setup({

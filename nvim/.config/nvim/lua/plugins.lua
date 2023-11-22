@@ -31,7 +31,6 @@ require("lazy").setup({
   --------------------------------------------
   -- Editor
   --------------------------------------------
-  "lukas-reineke/indent-blankline.nvim",
   "windwp/nvim-autopairs",
   "github/copilot.vim",
   "fedepujol/move.nvim",
@@ -39,6 +38,11 @@ require("lazy").setup({
   "Olical/vim-enmasse",
   "kevinhwang91/nvim-bqf",
   "folke/which-key.nvim",
+
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+  },
 
   {
     'ggandor/leap.nvim',
@@ -105,11 +109,6 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "numToStr/Comment.nvim",
   "folke/trouble.nvim",
-
-  {
-    "jinzhongjia/LspUI.nvim",
-    branch = "legacy"
-  },
 
   {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
