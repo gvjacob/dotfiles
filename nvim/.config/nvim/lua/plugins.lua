@@ -113,6 +113,7 @@ require("lazy").setup({
     }
   },
 
+  "stevearc/dressing.nvim",
   "L3MON4D3/LuaSnip",
   "numToStr/Comment.nvim",
   "folke/trouble.nvim",

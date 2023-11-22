@@ -6,6 +6,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp-tw2css": { "branch": "main", "commit": "1abe0eebcb57fcbd5538d054f0db61f4e4a1302b" },
   "copilot.vim": { "branch": "release", "commit": "309b3c803d1862d5e84c7c9c5749ae04010123b8" },
+  "dressing.nvim": { "branch": "master", "commit": "fe3071330a0720ce3695ac915820c8134b22d1b0" },
   "emmet-vim": { "branch": "master", "commit": "def5d57a1ae5afb1b96ebe83c4652d1c03640f4d" },
   "gitsigns.nvim": { "branch": "main", "commit": "0ccd5fb2316b3f8d8b2f775bc31cae7bc6a77a55" },
   "glow.nvim": { "branch": "main", "commit": "5b38fb7b6e806cac62707a4aba8c10c5f14d5bb5" },
