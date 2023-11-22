@@ -107,6 +107,7 @@ cmp.setup({
         { name = 'cmp-tw2css' },
     }, {
         { name = 'buffer' },
+        { name = 'path' },
     })
 })
 
