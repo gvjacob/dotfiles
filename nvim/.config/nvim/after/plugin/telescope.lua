@@ -39,6 +39,7 @@ telescope.setup {
   pickers = {
     git_files = use_ivy_theme,
     live_grep = use_ivy_theme,
+    quickfix = use_ivy_theme,
     current_buffer_fuzzy_find = use_ivy_theme,
     find_files = use_ivy_theme,
     buffers = use_ivy_theme,
