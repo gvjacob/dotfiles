@@ -15,6 +15,7 @@ require('mason-lspconfig').setup({
     "astro",
     "svelte",
     "emmet_ls",
+    "volar",
 
     -- Python
     "pyright",
