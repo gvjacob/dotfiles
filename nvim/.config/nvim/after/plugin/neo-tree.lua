@@ -25,7 +25,18 @@ require('neo-tree').setup({
     filtered_items = {
       visible = true,
       never_show = { ".DS_Store", '.git' },
-    }
+    },
+		window = {
+			mappings = {
+				["y"] = "yank_path",
+			},
+		},
+  },
+  commands = {
+    yank_path = function(state)
+      -- copy path of current node to unnamed register
+      vim.fn.setreg('unnamedplus', state.tree:get_node().path)
+    end
   },
   event_handlers = {
     {
