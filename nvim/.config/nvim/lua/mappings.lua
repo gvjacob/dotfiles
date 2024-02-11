@@ -16,12 +16,6 @@ utils.nmap('N', 'Nzzzv')
 -- Center line bumps
 utils.nmap('J', 'mzJ`z')
 
--- Use C-j and C-k to navigate page up and down
-utils.nmap('<C-k>', '{')
-utils.nmap('<C-j>', '}')
-utils.vmap('<C-k>', '{')
-utils.vmap('<C-j>', '}')
-
 -- Edit .env file
 utils.nmap('<Leader>e', ':e .env<CR>')
 
