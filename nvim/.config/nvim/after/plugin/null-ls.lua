@@ -7,7 +7,8 @@ require("mason-null-ls").setup({
       "jq",
       "eslint",
       "black",
-    }
+    },
+    automatic_installation = true
 })
 
 null_ls.setup({
