@@ -51,6 +51,9 @@ vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.scrolloff = 20
 
+-- @see https://github.com/neovim/neovim/issues/27260
+vim.opt.formatoptions = vim.opt.formatoptions - 'j'
+
 vim.cmd([[
   " Automatically wrap lines for markdown files.
   autocmd FileType markdown setlocal wrap
