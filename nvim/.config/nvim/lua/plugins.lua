@@ -34,10 +34,8 @@ require("lazy").setup({
   "windwp/nvim-autopairs",
   "github/copilot.vim",
   "fedepujol/move.nvim",
-  "folke/zen-mode.nvim",
   "Olical/vim-enmasse",
   "kevinhwang91/nvim-bqf",
-  "folke/which-key.nvim",
 
   {
     "lukas-reineke/indent-blankline.nvim",
