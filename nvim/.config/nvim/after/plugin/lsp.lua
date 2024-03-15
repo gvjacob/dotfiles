@@ -68,7 +68,7 @@ require('mason-lspconfig').setup_handlers({
       lspconfig[server].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
-        filetypes = { "astro", "html", "twig", "javascriptreact", "svelte", "typescriptreact", "vue" }
+        filetypes = { "astro", "html", "twig", "javascriptreact", "svelte", "templ", "typescriptreact", "vue" }
       })
     else
       lspconfig[server].setup({
