@@ -27,6 +27,7 @@ require("lazy").setup({
   -- Git
   --------------------------------------------
   "lewis6991/gitsigns.nvim",
+  "sindrets/diffview.nvim",
 
   --------------------------------------------
   -- Editor
