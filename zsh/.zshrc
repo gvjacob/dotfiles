@@ -148,3 +148,6 @@ eval "$(rbenv init - zsh)"
 
 # Elixir
 export PATH="$PATH:/path/to/elixir/bin"
+
+# Go
+export PATH="$PATH:$HOME/go/bin"
