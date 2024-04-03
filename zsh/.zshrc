@@ -151,3 +151,7 @@ export PATH="$PATH:/path/to/elixir/bin"
 
 # Go
 export PATH="$PATH:$HOME/go/bin"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+alias cd='z'
