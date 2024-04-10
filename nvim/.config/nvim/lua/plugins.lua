@@ -74,7 +74,10 @@ require("lazy").setup({
 
   {
     "ellisonleao/glow.nvim",
-    config = function() require("glow").setup() end
+    config = {
+      glow_path = "/opt/homebrew/bin/glow",
+    },
+    cmd = "Glow"
   },
 
   --------------------------------------------
