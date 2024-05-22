@@ -22,9 +22,6 @@ utils.nmap('<Leader>e', ':e .env<CR>')
 -- Step between most recent buffer
 utils.nmap('<Tab>', ':b#<CR>')
 
--- Delete buffer
-utils.nmap('<Leader>bd', ':bdelete<CR>')
-
 -- Keep hold of highlighted block when tabbing
 utils.vmap('>', '>gv')
 utils.vmap('<', '<gv')

@@ -13,18 +13,12 @@ require('mason-lspconfig').setup({
     "cssls",
     "tailwindcss",
     "astro",
-    "svelte",
     "emmet_ls",
-    "volar",
 
-    -- Python
-    "pyright",
-
-    -- Elixir
-    "elixirls",
-
-    -- Lua
-    "lua_ls",
+    "volar", -- Vue
+    "pyright", -- Python
+    "elixirls", -- Elixir
+    "lua_ls", -- Lua
 
     -- Docker
     "docker_compose_language_service",
