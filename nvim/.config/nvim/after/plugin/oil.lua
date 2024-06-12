@@ -8,6 +8,10 @@ require("oil").setup({
         return true
       end
 
+      if name:match(".git") then
+        return true
+      end
+
       return false
     end
   }
