@@ -8,6 +8,7 @@ require("mason-null-ls").setup({
       "eslint",
       "black",
       "gofmt",
+      "golangci_lint",
     },
     automatic_installation = true
 })

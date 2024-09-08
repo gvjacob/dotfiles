@@ -155,3 +155,4 @@ export PATH="$PATH:$HOME/go/bin"
 # Zoxide
 eval "$(zoxide init zsh)"
 alias cd='z'
+export PATH="/opt/homebrew/opt/pnpm@8/bin:$PATH"

@@ -68,7 +68,7 @@ require('mason-lspconfig').setup_handlers({
       lspconfig[server].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
-        filetypes = { "astro", "html", "twig", "javascriptreact", "markdown", "svelte", "templ", "typescriptreact", "vue" },
+        filetypes = { "astro", "html", "twig", "javascriptreact", "markdown", "svelte", "templ", "typescriptreact", "vue", "css" },
         init_options = { userLanguages = { templ = "html" } }
       })
     else
@@ -106,7 +106,6 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'cmp-tw2css' },
     }, {
         { name = 'buffer' },
         { name = 'path' },
