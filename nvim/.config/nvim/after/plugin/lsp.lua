@@ -9,7 +9,7 @@ require('mason-lspconfig').setup({
   ensure_installed = {
     -- Web development
     "html",
-    "tsserver",
+    "ts_ls",
     "cssls",
     "tailwindcss",
     "astro",
