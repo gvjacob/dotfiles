@@ -12,6 +12,9 @@ vim.opt.termguicolors = true
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+-- Remove bottom command line
+vim.opt.cmdheight = 0
+
 --------------------------------------
 -- LINE NUMBERS
 --------------------------------------
