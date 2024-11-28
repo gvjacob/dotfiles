@@ -3,6 +3,8 @@ local utils = require('utils')
 -- Change current word on Enter
 utils.nmap('<CR>', 'ciw')
 
+-- utils.nmap('<Leader>r', ':noh<CR>')
+
 -- Refresh current buffer
 utils.nmap('<Leader>R', ':edit!<CR>')
 
