@@ -67,17 +67,6 @@ require("lazy").setup({
   },
 
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    lazy = false,
-    branch = "v2.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons",
-      "MunifTanjim/nui.nvim",
-    }
-  },
-
-  {
     "ellisonleao/glow.nvim",
     config = {
       glow_path = "/opt/homebrew/bin/glow",
