@@ -47,11 +47,6 @@ require("lazy").setup({
   },
 
   {
-    "folke/noice.nvim",
-    dependencies = { "MunifTanjim/nui.nvim" }
-  },
-
-  {
     'nvim-lualine/lualine.nvim',
     lazy = false,
     dependencies = {
