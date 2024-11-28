@@ -27,7 +27,6 @@ require("lazy").setup({
   -- Git
   --------------------------------------------
   "lewis6991/gitsigns.nvim",
-  "tpope/vim-fugitive",
 
   --------------------------------------------
   -- Editor
@@ -36,7 +35,6 @@ require("lazy").setup({
   "github/copilot.vim",
   "fedepujol/move.nvim",
   "Olical/vim-enmasse",
-  "kevinhwang91/nvim-bqf",
 
   {
     "lukas-reineke/indent-blankline.nvim",
