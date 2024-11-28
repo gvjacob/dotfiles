@@ -10,3 +10,14 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = [[ set filetype=templ ]]
 })
 
+-- Automatically disable relative numbers in command mode
+vim.api.nvim_create_autocmd("CmdlineEnter", {
+  pattern = "*",
+  command = [[ set norelativenumber ]]
+})
+
+-- Automatically enable relative numbers after exiting command mode
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+  pattern = "*",
+  command = [[ set relativenumber ]]
+})

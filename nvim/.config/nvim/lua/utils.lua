@@ -1,20 +1,20 @@
-utils = {}
+local M = {}
 
-function utils.map(mode, shortcut, command, desc)
+function M.map(mode, shortcut, command, desc)
   desc = desc or ''
   vim.keymap.set(mode, shortcut, command, { noremap = true, silent = true, desc = desc })
 end
 
-function utils.nmap(shortcut, command, desc)
-  utils.map('n', shortcut, command, desc)
+function M.nmap(shortcut, command, desc)
+  M.map('n', shortcut, command, desc)
 end
 
-function utils.imap(shortcut, command, desc)
-  utils.map('i', shortcut, command, desc)
+function M.imap(shortcut, command, desc)
+  M.map('i', shortcut, command, desc)
 end
 
-function utils.vmap(shortcut, command, desc)
-  utils.map('v', shortcut, command, desc)
+function M.vmap(shortcut, command, desc)
+  M.map('v', shortcut, command, desc)
 end
 
-return utils
+return M

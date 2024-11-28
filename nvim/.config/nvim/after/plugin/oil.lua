@@ -1,4 +1,4 @@
-require('utils')
+local utils = require('utils')
 
 require("oil").setup({
   view_options = {

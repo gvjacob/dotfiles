@@ -1,4 +1,4 @@
-require('utils')
+local utils = require('utils')
 
 -- IMPORTANT: neodev needs to be setup before lsp config.
 require("neodev").setup()

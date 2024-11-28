@@ -1,4 +1,4 @@
-require('utils')
+local utils = require('utils')
 
 require('neo-tree').setup({
   close_if_last_window = true,
