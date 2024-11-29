@@ -7,13 +7,13 @@ local actions = require('telescope.actions')
 -- Search through all files tracked with git.
 -- If not in a git repo, search through all files in the current directory.
 local function project_files()
-    vim.fn.system('git rev-parse --is-inside-work-tree')
+  vim.fn.system('git rev-parse --is-inside-work-tree')
 
-    if vim.v.shell_error == 0 then
-        builtin.git_files({ show_untracked = true })
-    else
-        builtin.find_files()
-    end
+  if vim.v.shell_error == 0 then
+    builtin.git_files({ show_untracked = true })
+  else
+    builtin.find_files()
+  end
 end
 
 -- Default configuration for all pickers

@@ -2,15 +2,15 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local null_ls = require("null-ls")
 
 require("mason-null-ls").setup({
-    ensure_installed = {
-      "prettier",
-      "jq",
-      "eslint",
-      "black",
-      "gofmt",
-      "golangci_lint",
-    },
-    automatic_installation = true
+  ensure_installed = {
+    "prettier",
+    "jq",
+    "eslint",
+    "black",
+    "gofmt",
+    "golangci_lint",
+  },
+  automatic_installation = true
 })
 
 null_ls.setup({
@@ -49,12 +49,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     local cmd = "templ fmt " .. vim.fn.shellescape(filename)
 
     vim.fn.jobstart(cmd, {
-        on_exit = function()
-            -- Reload the buffer only if it's still the current buffer
-            if vim.api.nvim_get_current_buf() == bufnr then
-                vim.cmd('e!')
-            end
-        end,
+      on_exit = function()
+        -- Reload the buffer only if it's still the current buffer
+        if vim.api.nvim_get_current_buf() == bufnr then
+          vim.cmd('e!')
+        end
+      end,
     })
   end
 })
