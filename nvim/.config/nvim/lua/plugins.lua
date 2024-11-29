@@ -50,6 +50,7 @@ require("lazy").setup({
   "github/copilot.vim",
   "fedepujol/move.nvim",
   "Olical/vim-enmasse",
+  'kevinhwang91/nvim-bqf',
 
   {
     "lukas-reineke/indent-blankline.nvim",
