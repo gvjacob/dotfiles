@@ -51,6 +51,11 @@ require("lazy").setup({
   "fedepujol/move.nvim",
   "Olical/vim-enmasse",
   'kevinhwang91/nvim-bqf',
+  "numToStr/Comment.nvim",
+
+  {
+    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
+  },
 
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -86,6 +91,11 @@ require("lazy").setup({
   },
 
   --------------------------------------------
+  -- AI
+  --------------------------------------------
+  "github/copilot.vim",
+
+  --------------------------------------------
   -- Search
   --------------------------------------------
   {
@@ -101,6 +111,10 @@ require("lazy").setup({
   --------------------------------------------
   -- LSP
   --------------------------------------------
+  "neovim/nvim-lspconfig",
+  "stevearc/dressing.nvim",
+  "folke/trouble.nvim",
+
   {
     "williamboman/mason.nvim",
     dependencies = {
@@ -108,7 +122,16 @@ require("lazy").setup({
       "jay-babu/mason-null-ls.nvim"
     }
   },
-  "neovim/nvim-lspconfig",
+
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
+
+  --------------------------------------------
+  -- Completion
+  --------------------------------------------
+  "L3MON4D3/LuaSnip",
 
   {
     "hrsh7th/nvim-cmp",
@@ -118,20 +141,6 @@ require("lazy").setup({
       "hrsh7th/cmp-path",
       "jcha0713/cmp-tw2css",
     }
-  },
-
-  "stevearc/dressing.nvim",
-  "L3MON4D3/LuaSnip",
-  "numToStr/Comment.nvim",
-  "folke/trouble.nvim",
-
-  {
-    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
-  },
-
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" }
   },
 
   --------------------------------------------
