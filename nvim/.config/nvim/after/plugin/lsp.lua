@@ -62,13 +62,39 @@ require('mason-lspconfig').setup_handlers({
       lspconfig[server].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
-        filetypes = { "astro", "html", "htmldjango", "twig", "javascriptreact", "markdown", "svelte", "templ", "typescriptreact", "vue", "elixir" }
+        filetypes = {
+          "astro",
+          "html",
+          "htmldjango",
+          "twig",
+          "javascriptreact",
+          "markdown",
+          "svelte",
+          "templ",
+          "typescriptreact",
+          "vue",
+          "elixir"
+        }
       })
     elseif server == 'tailwindcss' then
       lspconfig[server].setup({
         on_attach = lsp_attach,
         capabilities = lsp_capabilities,
-        filetypes = { "astro", "html", "twig", "javascriptreact", "markdown", "svelte", "templ", "typescriptreact", "vue", "css", "heex", "elixir", "eelixir" },
+        filetypes = {
+          "astro",
+          "html",
+          "twig",
+          "javascriptreact",
+          "markdown",
+          "svelte",
+          "templ",
+          "typescriptreact",
+          "vue",
+          "css",
+          "heex",
+          "elixir",
+          "eelixir"
+        },
         init_options = {
           userLanguages = {
             templ = "html",
