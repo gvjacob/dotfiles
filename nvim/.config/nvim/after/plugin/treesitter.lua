@@ -9,7 +9,8 @@ require'nvim-treesitter.configs'.setup {
     "astro",
     "graphql",
     "vue",
-    "heex"
+    "heex",
+    "go",
   },
   highlight = {
     enable = true,
