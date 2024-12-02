@@ -15,9 +15,8 @@ utils.nmap('N', 'Nzzzv')
 -- Center line bumps
 utils.nmap('J', 'mzJ`z')
 
--- Step to next/previous buffer
-utils.nmap('<Tab>', ':bnext<CR>')
-utils.nmap('<S-Tab>', ':bprev<CR>')
+-- Toggle between last two buffers
+utils.nmap('<Tab>', ':b#<CR>')
 
 -- Keep hold of highlighted block when tabbing
 utils.vmap('>', '>gv')
