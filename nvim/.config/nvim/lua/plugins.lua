@@ -52,6 +52,7 @@ require("lazy").setup({
   "Olical/vim-enmasse",
   'kevinhwang91/nvim-bqf',
   "numToStr/Comment.nvim",
+  "nvim-treesitter/nvim-treesitter-context",
 
   {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"

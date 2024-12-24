@@ -5,6 +5,10 @@ utils.nmap('<CR>', 'ciw')
 
 -- utils.nmap('<Leader>r', ':noh<CR>')
 
+-- Move cursor to start or end of line
+utils.nmap('H', '^')
+utils.nmap('L', '$')
+
 -- Refresh current buffer
 utils.nmap('<Leader>R', ':edit!<CR>')
 
