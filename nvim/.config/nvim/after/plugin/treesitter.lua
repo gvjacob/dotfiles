@@ -11,8 +11,12 @@ require'nvim-treesitter.configs'.setup {
     "vue",
     "heex",
     "go",
+    "php",
   },
   highlight = {
+    enable = true,
+  },
+  indent = {
     enable = true,
   },
 }
