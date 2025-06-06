@@ -16,14 +16,34 @@ require("mason-null-ls").setup({
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettier.with({
-      extra_filetypes = { "astro", "twig" },
+      extra_filetypes = { "astro" },
     }),
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.jq,
     null_ls.builtins.diagnostics.eslint,
     null_ls.builtins.formatting.black,
     null_ls.builtins.formatting.ruff,
-    null_ls.builtins.formatting.mix
+    null_ls.builtins.formatting.phpcbf.with({
+      command = function()
+        -- Check if project has local phpcbf
+        if vim.fn.executable("./vendor/bin/phpcbf") == 1 then
+          return "./vendor/bin/phpcbf"
+
+        elseif vim.fn.executable("./client-mu-plugins/vendor/bin/phpcbf") == 1 then
+          return "./client-mu-plugins/vendor/bin/phpcbf"
+
+        -- Otherwise, use global executable
+        else
+          return "phpcbf"
+        end
+      end,
+    }),
+    null_ls.builtins.formatting.mix.with({
+      extra_filetypes = { "heex" }
+    }),
+    -- null_ls.builtins.formatting.djlint.with({
+    --   extra_filetypes = { "twig" },
+    -- })
   },
 
   on_attach = function(client, bufnr)

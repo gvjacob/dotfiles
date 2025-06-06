@@ -14,6 +14,7 @@ require('mason-lspconfig').setup({
     "tailwindcss",
     "astro",
     "emmet_ls",
+    "twiggy_language_server", -- twig
 
     "volar", -- Vue
     "pyright", -- Python
@@ -66,6 +67,7 @@ require('mason-lspconfig').setup_handlers({
           "astro",
           "html",
           "htmldjango",
+          "heex",
           "twig",
           "javascriptreact",
           "markdown",
