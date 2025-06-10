@@ -107,13 +107,7 @@ require('mason-lspconfig').setup_handlers({
         },
         settings = {
           tailwindCSS = {
-            experimental = {
-              classRegex = {
-                [[class= "([^"]*)]],
-                [[class: "([^"]*)]],
-                '~H""".*class="([^"]*)".*"""',
-              },
-            },
+            classFunctions = { "cva", "clsx", "cn" },
           },
         }
 
