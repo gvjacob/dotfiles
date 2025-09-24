@@ -53,14 +53,10 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.opt.linebreak = true
 vim.opt.scrolloff = 20
+vim.opt.textwidth = 0 -- Disable automatic line wrapping
 
 -- @see https://github.com/neovim/neovim/issues/27260
 vim.opt.formatoptions = vim.opt.formatoptions - 'j'
-
-vim.cmd([[
-  " Automatically wrap lines for markdown files.
-  autocmd FileType markdown setlocal wrap
-]])
 
 --------------------------------------
 -- TIMEOUT
