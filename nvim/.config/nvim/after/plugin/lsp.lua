@@ -56,6 +56,37 @@ vim.lsp.config('lua_ls', {
   },
 })
 
+local mason_packages = vim.fn.stdpath('data') .. '/mason/packages'
+local ts_plugin_path = mason_packages .. '/vue-language-server/node_modules/@vue/typescript-plugin'
+local ts_sdk_path = mason_packages .. '/typescript-language-server/node_modules/typescript/lib'
+
+vim.lsp.config('vue_ls', {
+  init_options = {
+    typescript = {
+      tsdk = ts_sdk_path,
+    },
+  },
+})
+
+vim.lsp.config('ts_ls', {
+  filetypes = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+  },
+  init_options = {
+    plugins = {
+      {
+        name = '@vue/typescript-plugin',
+        location = ts_plugin_path,
+        languages = { 'vue' },
+      },
+    },
+  },
+})
+
 vim.lsp.config('emmet_ls', {
   filetypes = {
     "astro",

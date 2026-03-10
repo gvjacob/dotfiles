@@ -5,7 +5,7 @@ require("mason-null-ls").setup({
   ensure_installed = {
     "prettier",
     "jq",
-    "eslint",
+    "eslint_d",
     "black",
     "gofmt",
     "golangci_lint",
@@ -31,7 +31,7 @@ null_ls.setup({
     }),
     null_ls.builtins.formatting.gofmt,
     require("none-ls.formatting.jq"),
-    require("none-ls.diagnostics.eslint"),
+    require("none-ls.diagnostics.eslint_d"),
     null_ls.builtins.formatting.black,
     require("none-ls.formatting.ruff"),
     null_ls.builtins.formatting.phpcbf.with({
