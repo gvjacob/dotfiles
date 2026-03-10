@@ -13,16 +13,27 @@ require("mason-null-ls").setup({
   automatic_installation = true
 })
 
+local twix = {
+  name = "twix",
+  method = null_ls.methods.FORMATTING,
+  filetypes = { "twig" },
+  generator = null_ls.formatter({
+    command = "npx",
+    args = { "twix", "--stdin" },
+    to_stdin = true,
+  }),
+}
+
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettier.with({
       extra_filetypes = { "astro" },
     }),
     null_ls.builtins.formatting.gofmt,
-    null_ls.builtins.formatting.jq,
-    null_ls.builtins.diagnostics.eslint,
+    require("none-ls.formatting.jq"),
+    require("none-ls.diagnostics.eslint"),
     null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.ruff,
+    require("none-ls.formatting.ruff"),
     null_ls.builtins.formatting.phpcbf.with({
       command = function()
         -- Check if project has local phpcbf
@@ -41,9 +52,7 @@ null_ls.setup({
     null_ls.builtins.formatting.mix.with({
       extra_filetypes = { "heex" }
     }),
-    -- null_ls.builtins.formatting.djlint.with({
-    --   extra_filetypes = { "twig" },
-    -- })
+    twix,
   },
 
   on_attach = function(client, bufnr)
@@ -78,4 +87,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     })
   end
 })
+
+
 

@@ -64,8 +64,7 @@ require("lazy").setup({
   },
 
   {
-    'ggandor/leap.nvim',
-    dependencies = { 'tpope/vim-repeat' }
+    url = "https://codeberg.org/andyg/leap.nvim",
   },
 
   {
@@ -125,8 +124,11 @@ require("lazy").setup({
   },
 
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" }
+    "nvimtools/none-ls.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvimtools/none-ls-extras.nvim",
+    }
   },
 
   --------------------------------------------
@@ -149,6 +151,10 @@ require("lazy").setup({
   --------------------------------------------
   "jose-elias-alvarez/typescript.nvim",
   "NoahTheDuke/vim-just",
-  "folke/neodev.nvim",
+  {
+    "folke/lazydev.nvim",
+    ft = "lua",
+    opts = {},
+  },
   "mattn/emmet-vim",
 })

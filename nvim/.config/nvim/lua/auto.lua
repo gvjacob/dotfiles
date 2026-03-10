@@ -10,6 +10,12 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   command = [[ set filetype=templ ]]
 })
 
+-- Cast .svg files as "html"
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+  pattern = "*.svg",
+  command = [[ set filetype=html ]]
+})
+
 -- Disable relative numbers in command mode
 vim.api.nvim_create_autocmd({ "CmdlineEnter" }, {
    pattern = "*",
