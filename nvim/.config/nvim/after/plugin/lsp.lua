@@ -1,5 +1,9 @@
 local utils = require('utils')
 
+vim.diagnostic.config({
+  virtual_text = true,
+})
+
 require('mason').setup()
 
 require('mason-lspconfig').setup({
