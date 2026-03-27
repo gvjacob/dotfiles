@@ -12,6 +12,7 @@ require'nvim-treesitter.configs'.setup {
     "heex",
     "go",
     "php",
+    "css",
   },
   highlight = {
     enable = true,
